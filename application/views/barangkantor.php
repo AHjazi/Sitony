@@ -1,11 +1,15 @@
 <div class="card" style="margin-left:25px;margin-right:25px;margin-top:25px;">
     <h5 class="card-header">Data Barang Kantor</h5>
     <div class="table-responsive text-nowrap">
+        <td><a href="<?php echo base_url('tambahkantor')?>"><button class="btn rounded-pill btn-primary"
+                    style="margin-left:20px"><i class='bx bxs-folder-plus'></i> Tambah
+                    Data</i></button></a></td>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>No</th>
                     <th>Kode Barang</th>
+                    <th>Nama Barang</th>
                     <th>Brand</th>
                     <th>Stok</th>
                     <th>Satuan</th>
@@ -17,6 +21,7 @@
                 <tr>
                     <td>1.</td>
                     <td>Albert Cook</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>
@@ -38,6 +43,7 @@
                 <tr>
                     <td>2.</td>
                     <td>Katak Bizer</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td>
