@@ -1,24 +1,18 @@
 <div class="col-xl-13" style="margin-left:25px;margin-right:25px;margin-top:25px;">
     <!-- HTML5 Inputs -->
     <div class="card mb-4">
-        <h5 class="card-header">Tambah Data Barang Kantor</h5>
+        <h5 class="card-header">Edit Data Bahan Bakar</h5>
         <div class="card-body">
             <div class="mb-3 row">
-                <label for="html5-text-input" class="col-md-2 col-form-label">Kode Barang</label>
+                <label for="html5-text-input" class="col-md-2 col-form-label">Kode Bahan Bakar</label>
                 <div class="col-md-10">
                     <input class="form-control" type="text" value="Sneat" id="html5-text-input" />
                 </div>
             </div>
             <div class="mb-3 row">
-                <label for="html5-search-input" class="col-md-2 col-form-label">Nama</label>
+                <label for="html5-search-input" class="col-md-2 col-form-label">Jenis</label>
                 <div class="col-md-10">
                     <input class="form-control" type="text" value="Search ..." id="html5-search-input" />
-                </div>
-            </div>
-            <div class="mb-3 row">
-                <label for="html5-email-input" class="col-md-2 col-form-label">Brand</label>
-                <div class="col-md-10">
-                    <input class="form-control" type="text" value="john@example.com" id="html5-email-input" />
                 </div>
             </div>
             <div class="mb-3 row">
@@ -44,7 +38,7 @@
             <td><a type="submit"><button class="btn rounded-pill btn-success"><i class='bx bxs-save'></i>
                         Simpan</i></button></a>
                 <br>
-                <a href="<?php echo base_url('barangkantor')?>"><button class="btn rounded-pill btn-danger"><i
+                <a href="<?php echo base_url('bahanbakar')?>"><button class="btn rounded-pill btn-danger"><i
                             class='bx bx-arrow-back'></i>Kembali</i></button></a>
             </td>
         </div>

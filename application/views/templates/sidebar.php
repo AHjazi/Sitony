@@ -105,7 +105,7 @@
                         </ul>
                     </li>
                     <li class="menu-item">
-                        <a href="cards-basic.html" class="menu-link">
+                        <a href="<?php echo base_url('barangmasuk')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-archive-in"></i>
                             <div data-i18n="Basic">Barang Masuk</div>
                         </a>
@@ -122,11 +122,17 @@
                             <div data-i18n="Basic">Barang Expand</div>
                         </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="<?php echo base_url('permintaanbarang')?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-task"></i>
+                            <div data-i18n="Basic">Permintaan Barang</div>
+                        </a>
+                    </li>
                     <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">User</span></li>
                     <!-- Cards -->
                     <li class="menu-item">
-                        <a href="cards-basic.html" class="menu-link">
+                        <a href="<?php echo base_url('akun')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
                             <div data-i18n="Basic">Akun</div>
                         </a>

@@ -1,7 +1,7 @@
 <div class="col-xl-13" style="margin-left:25px;margin-right:25px;margin-top:25px;">
     <!-- HTML5 Inputs -->
     <div class="card mb-4">
-        <h5 class="card-header">Tambah Data Barang Kantor</h5>
+        <h5 class="card-header">Edit Data Barang Kantor</h5>
         <div class="card-body">
             <div class="mb-3 row">
                 <label for="html5-text-input" class="col-md-2 col-form-label">Kode Barang</label>
