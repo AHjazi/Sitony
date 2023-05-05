@@ -81,7 +81,10 @@
                                 placeholder="+62" aria-label="+62" aria-describedby="basic-icon-default-phone2" />
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    <div style="margin-left:10px;">
+                        <a type="submit"><button class="btn rounded-pill btn-success"><i class='bx bxs-save'></i>
+                                Simpan</i></button></a>
+                    </div>
                 </form>
             </div>
         </div>

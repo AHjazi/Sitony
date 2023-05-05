@@ -41,11 +41,11 @@
                     <input class="form-control" type="text" value="" id="html5-password-input" />
                 </div>
             </div>
-            <td><a type="submit"><button class="btn rounded-pill btn-success"><i class='bx bxs-save'></i>
+            <div style="margin-left:10px;margin-top:10px;">
+                <a type="submit"><button class="btn rounded-pill btn-success"><i class='bx bxs-save'></i>
                         Simpan</i></button></a>
-                <br>
                 <a href="<?php echo base_url('barangkantor')?>"><button class="btn rounded-pill btn-danger"><i
                             class='bx bx-arrow-back'></i>Kembali</i></button></a>
-            </td>
+            </div>
         </div>
     </div>

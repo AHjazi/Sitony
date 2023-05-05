@@ -149,19 +149,19 @@
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Laporan</span></li>
                     <!-- Forms -->
                     <li class="menu-item">
-                        <a href="cards-basic.html" class="menu-link">
+                        <a href="<?php echo base_url('laporanpermintaanbarang')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-file-pdf"></i>
                             <div data-i18n="Basic">Laporan Permintaan Barang</div>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="cards-basic.html" class="menu-link">
+                        <a href="<?php echo base_url('laporanbarangmasuk')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-file-export"></i>
                             <div data-i18n="Basic">Laporan Barang Masuk</div>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="cards-basic.html" class="menu-link">
+                        <a href="<?php echo base_url('laporanbarangkeluar')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-file-import"></i>
                             <div data-i18n="Basic">Laporan Barang Keluar</div>
                         </a>
