@@ -111,7 +111,7 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="cards-basic.html" class="menu-link">
+                        <a href="<?php echo base_url('barangkeluar')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-archive-out"></i>
                             <div data-i18n="Basic">Barang Keluar</div>
                         </a>
@@ -139,22 +139,10 @@
                     </li>
                     <!-- User interface -->
                     <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link menu-toggle">
+                        <a href="<?php echo base_url('divisi')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-briefcase-alt-2"></i>
-                            <div data-i18n="User interface">Devisi</div>
+                            <div data-i18n="Basic">Divisi</div>
                         </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="ui-accordion.html" class="menu-link">
-                                    <div data-i18n="Accordion">Accordion</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-alerts.html" class="menu-link">
-                                    <div data-i18n="Alerts">Alerts</div>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                     <!-- Forms & Tables -->
@@ -162,7 +150,7 @@
                     <!-- Forms -->
                     <li class="menu-item">
                         <a href="cards-basic.html" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-file-export"></i>
+                            <i class="menu-icon tf-icons bx bxs-file-pdf"></i>
                             <div data-i18n="Basic">Laporan Permintaan Barang</div>
                         </a>
                     </li>
@@ -180,7 +168,7 @@
                     </li>
                     <li class="menu-item">
                         <a href="cards-basic.html" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-file-export"></i>
+                            <i class="menu-icon tf-icons bx bx-check"></i>
                             <div data-i18n="Basic">Permintaan Terpenuhi</div>
                         </a>
                     </li>

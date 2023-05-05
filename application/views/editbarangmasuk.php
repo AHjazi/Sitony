@@ -43,7 +43,7 @@
                 <a type="reset"><button class="btn rounded-pill btn-danger"><i class='bx bx-reset'></i>
                         Reset</i></button></a>
             </td>
-
         </div>
     </div>
+</div>
 </div>
