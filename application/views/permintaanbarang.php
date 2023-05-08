@@ -27,10 +27,11 @@
                                 <i class="bx bx-dots-vertical-rounded"></i>
                             </button>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"><i
+                                <a class="dropdown-item" href="<?php echo base_url('detailpermintaan')?>"><i
                                         class="bx bx-message-alt-error me-1"></i>
                                     Detail</a>
-                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-task me-1"></i>
+                                <a class="dropdown-item" href="<?php echo base_url('eksekusipermintaan')?>"><i
+                                        class="bx bx-task me-1"></i>
                                     Eksekusi</a>
                             </div>
                         </div>
