@@ -28,6 +28,26 @@
             <div class="card-body">
                 <form>
                     <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-fullname">Username</label>
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i
+                                    class="bx bxs-user-circle"></i></span>
+                            <input type="text" class="form-control" id="basic-icon-default-fullname"
+                                placeholder="Username" aria-label="NIK"
+                                aria-describedby="basic-icon-default-fullname2" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-icon-default-fullname">Password</label>
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text"><i
+                                    class="bx bxs-lock"></i></span>
+                            <input type="text" class="form-control" id="basic-icon-default-fullname"
+                                placeholder="Password" aria-label="NIK"
+                                aria-describedby="basic-icon-default-fullname2" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
                         <label class="form-label" for="basic-icon-default-fullname">NIK</label>
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-fullname2" class="input-group-text"><i
@@ -78,7 +98,8 @@
                             <span id="basic-icon-default-phone2" class="input-group-text"><i
                                     class="bx bxs-donate-blood"></i></span>
                             <input type="text" id="basic-icon-default-phone" class="form-control phone-mask"
-                                placeholder="+62" aria-label="+62" aria-describedby="basic-icon-default-phone2" />
+                                placeholder="Golongan Darah" aria-label="+62"
+                                aria-describedby="basic-icon-default-phone2" />
                         </div>
                     </div>
                     <div style="margin-left:10px;">

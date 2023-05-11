@@ -12,4 +12,45 @@ class TambahKantor extends CI_Controller {
         $this->load->view('tambahkantor');
         $this->load->view('templates/footer');
 	}
+	public function _rules()
+	{
+		$this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
+		$this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
+		$this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
+	}
+	public function tambah_data_aksi()
+	{
+		$this->_rules();
+		if($this->form_validation->run() == FALSE){
+			$this->tambah();
+		}else{
+			$id_barang	  	      = $this->input->post('id_barang');
+			$nama_barang  	  = $this->input->post('nama_barang');
+			$kode_barang 		  = $this->input->post('kode_barang');
+			$satuan   	  = $this->input->post('satuan');
+			$stok   	  = $this->input->post('stok');
+			$keperluan   	  = $this->input->post('keperluan');
+			$brand   	  = $this->input->post('brand');
+
+			$data = array(
+				'id_barang'	=> $id_barang,
+				'nama_barang'		=> $nama_barang,
+				'kode_barang'		=> $kode_barang,
+				'satuan'		=> $satuan,
+				'stok'		=> $stok,
+				'keperluan'		=> $keperluan,
+				'brand'		=> $brand,
+			);
+
+			$this->M_tambahkantor->insert_data($data, 'tambahkantor');
+			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<strong>Data berhasil ditambahkan !</strong>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>');
+		  redirect('barangkantor');
+		}
+	
+}
 }
