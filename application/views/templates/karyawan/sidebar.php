@@ -105,18 +105,6 @@
                         </ul>
                     </li>
                     <li class="menu-item">
-                        <a href="<?php echo base_url('barangmasuk')?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-archive-in"></i>
-                            <div data-i18n="Basic">Barang Masuk</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="<?php echo base_url('barangkeluar')?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-archive-out"></i>
-                            <div data-i18n="Basic">Barang Keluar</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
                         <a href="<?php echo base_url('permintaanbarang')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-task"></i>
                             <div data-i18n="Basic">Permintaan Barang</div>
@@ -126,44 +114,9 @@
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">User</span></li>
                     <!-- Cards -->
                     <li class="menu-item">
-                        <a href="<?php echo base_url('akun')?>" class="menu-link">
+                        <a href="<?php echo base_url('./karyawan/detailkaryawan')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
                             <div data-i18n="Basic">Akun</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="<?php echo base_url('akun/tambah_akun')?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-user-plus"></i>
-                            <div data-i18n="Basic">Registrasi</div>
-                        </a>
-                    </li>
-                    <!-- User interface -->
-                    <li class="menu-item">
-                        <a href="<?php echo base_url('divisi')?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-briefcase-alt-2"></i>
-                            <div data-i18n="Basic">Divisi</div>
-                        </a>
-                    </li>
-
-                    <!-- Forms & Tables -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Laporan</span></li>
-                    <!-- Forms -->
-                    <li class="menu-item">
-                        <a href="<?php echo base_url('laporanpermintaanbarang')?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-file-pdf"></i>
-                            <div data-i18n="Basic">Laporan Permintaan Barang</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="<?php echo base_url('laporanbarangmasuk')?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-file-export"></i>
-                            <div data-i18n="Basic">Laporan Barang Masuk</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="<?php echo base_url('laporanbarangkeluar')?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-file-import"></i>
-                            <div data-i18n="Basic">Laporan Barang Keluar</div>
                         </a>
                     </li>
                 </ul>

@@ -23,6 +23,22 @@ class Satuan extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
+	public function hapus_satuan($id_satuan = null)
+	{
+    if($id_satuan == null){
+        redirect('satuan');
+    }
+    $where = array('id_satuan' => $id_satuan);
+    $this->M_tambahsatuan->delete_data($where, 'satuan');
+    $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data berhasil dihapus !</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+    redirect('satuan');
+	}
+
 	public function _rules()
 	{
 		$this->form_validation->set_rules('id_satuan','jenis_satuan','required');
@@ -38,6 +54,7 @@ class Satuan extends CI_Controller {
 		}else{
 			$id_satuan	  	  = $this->input->post('id_satuan');
 			$jenis_satuan 	  = $this->input->post('jenis_satuan');
+			
 			$data = array(
 				'id_satuan'		=> $id_satuan,
 				'jenis_satuan'	=> $jenis_satuan,

@@ -16,6 +16,10 @@ class M_tambahbahanbakar extends CI_Model
         $this->db->insert($table,$data);
     }
 
+    public function edit_bahanbakar($id)
+    {
+        return $this->db->get_where('bahanbakar',['id_bahanbakar'=> $id])->row_array();
+    }
     public function update_data($table,$data,$where){
         $this->db->update($table,$data,$where);
     }

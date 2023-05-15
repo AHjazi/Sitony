@@ -24,6 +24,22 @@ class Divisi extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
+	public function hapus_divisi($id_divisi = null)
+	{
+    if($id_divisi == null){
+        redirect('satuan');
+    }
+    $where = array('id_divisi' => $id_divisi);
+    $this->M_tambahdivisi->delete_data($where, 'divisi');
+    $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data berhasil dihapus !</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+    redirect('divisi');
+	}
+
 	public function _rules()
 	{
 		$this->form_validation->set_rules('id_divisi','divisi','required');

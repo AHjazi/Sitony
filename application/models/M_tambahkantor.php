@@ -16,6 +16,11 @@ class M_tambahkantor extends CI_Model
         $this->db->insert($table,$data);
     }
 
+    public function edit_kantor($id)
+    {
+        return $this->db->get_where('barangkantor',['id_barang'=> $id])->row_array();
+    }
+
     public function update_data($table,$data,$where){
         $this->db->update($table,$data,$where);
     }

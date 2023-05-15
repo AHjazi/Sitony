@@ -24,6 +24,33 @@ class BahanBakar extends CI_Controller {
         $this->load->view('templates/footer');
 	}
 
+	public function edit_bahanbakar($id)
+	{
+		$this->load->model('M_tambahbahanbakar');
+		$data['bahanbakar'] = $this->M_tambahbahanbakar->edit_bahanbakar($id);
+		$this->load->view('templates/header');
+        $this->load->view('templates/sidebar');
+		$this->load->view('templates/navbar');
+        $this->load->view('editbahanbakar',$data);
+        $this->load->view('templates/footer');
+	}
+
+	public function hapus_bahanbakar($id_bahanbakar = null)
+	{
+    if($id_bahanbakar == null){
+        redirect('bahanbakar');
+    }
+    $where = array('id_bahanbakar' => $id_bahanbakar);
+    $this->M_tambahbahanbakar->delete_data($where, 'bahanbakar');
+    $this->session->set_flashdata('pesan','<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Data berhasil dihapus !</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+    redirect('bahanbakar');
+	}
+
 	public function _rules()
 	{
 		$this->form_validation->set_rules('id_bahanbakar','kode_bahanbakar','jenis','id_satuan','keperluan','required');
@@ -40,7 +67,7 @@ class BahanBakar extends CI_Controller {
 			$id_bahanbakar	  	  = $this->input->post('id_bahanbakar');
 			$kode_bahanbakar 	  = $this->input->post('kode_bahanbakar');
 			$jenis		 		  = $this->input->post('jenis');
-			$id_satuan   	 		  = $this->input->post('id_satuan');
+			$id_satuan   	 	  = $this->input->post('id_satuan');
 			$keperluan 	  	 	  = $this->input->post('keperluan');
 			$data = array(
 				'id_bahanbakar'		=> $id_bahanbakar,
@@ -60,5 +87,35 @@ class BahanBakar extends CI_Controller {
 		  redirect('bahanbakar');
 		}
 	
+	}
+	public function update_data_aksi()
+	{
+		$this->load->model('M_tambahbahanbakar');
+		$this->_rules();
+			$id_bahanbakar	  	  = $this->input->post('id_bahanbakar');
+			$kode_bahanbakar 	  = $this->input->post('kode_bahanbakar');
+			$jenis		 		  = $this->input->post('jenis');
+			$id_satuan   	 	  = $this->input->post('id_satuan');
+			$keperluan 	  	 	  = $this->input->post('keperluan');
+			$data = array(
+				'id_bahanbakar'		=> $id_bahanbakar,
+				'kode_bahanbakar'	=> $kode_bahanbakar,
+				'jenis'				=> $jenis,
+				'id_satuan'			=> $id_satuan,
+				'keperluan'			=> $keperluan,
+			);
+			
+			$where = array(
+				'id_bahanbakar' => $id_bahanbakar
+			);
+
+			$this->M_tambahbahanbakar->update_data('bahanbakar', $data, $where);
+			$this->session->set_flashdata('pesan','<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			<strong>Data berhasil diupdate !</strong>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>');
+		  redirect('bahanbakar');
 	}
 }

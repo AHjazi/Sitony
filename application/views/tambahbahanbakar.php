@@ -24,7 +24,7 @@
                 </div>
                 <div class="mb-3 row">
                     <label for="exampleFormControlSelect1" class="form-label">Satuan</label>
-                    <select class="form-select" id="exampleFormControlSelect1" name="satuan"
+                    <select class="form-select" id="exampleFormControlSelect1" name="id_satuan"
                         aria-label="Default select example">
                         <option selected>Open this select menu</option>
                         <option value="1">Pcs</option>

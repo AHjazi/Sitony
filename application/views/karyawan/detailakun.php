@@ -48,12 +48,12 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" for="basic-icon-default-fullname">NIP</label>
+                        <label class="form-label" for="basic-icon-default-fullname">NIK</label>
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-fullname2" class="input-group-text"><i
                                     class="bx bxs-user-rectangle"></i></span>
-                            <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="NIP"
-                                aria-label="NIP" aria-describedby="basic-icon-default-fullname2" />
+                            <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="NIK"
+                                aria-label="NIK" aria-describedby="basic-icon-default-fullname2" />
                         </div>
                     </div>
                     <div class="mb-3">
