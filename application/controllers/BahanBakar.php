@@ -53,7 +53,7 @@ class BahanBakar extends CI_Controller {
 
 	public function _rules()
 	{
-		$this->form_validation->set_rules('id_bahanbakar','kode_bahanbakar','jenis','id_satuan','keperluan','required');
+		$this->form_validation->set_rules('id_bahanbakar','kode_bahanbakar','jenis','id_satuan','keperluan','stok','required');
 		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
 		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
 	}
@@ -69,12 +69,14 @@ class BahanBakar extends CI_Controller {
 			$jenis		 		  = $this->input->post('jenis');
 			$id_satuan   	 	  = $this->input->post('id_satuan');
 			$keperluan 	  	 	  = $this->input->post('keperluan');
+			$stok 	  	 		  = $this->input->post('stok');
 			$data = array(
 				'id_bahanbakar'		=> $id_bahanbakar,
 				'kode_bahanbakar'	=> $kode_bahanbakar,
 				'jenis'				=> $jenis,
 				'id_satuan'			=> $id_satuan,
 				'keperluan'			=> $keperluan,
+				'stok'				=> $stok,
 			);
 
 			$this->M_tambahbahanbakar->insert_data($data, 'bahanbakar');
@@ -97,12 +99,14 @@ class BahanBakar extends CI_Controller {
 			$jenis		 		  = $this->input->post('jenis');
 			$id_satuan   	 	  = $this->input->post('id_satuan');
 			$keperluan 	  	 	  = $this->input->post('keperluan');
+			$stok 	  	 		  = $this->input->post('stok');
 			$data = array(
 				'id_bahanbakar'		=> $id_bahanbakar,
 				'kode_bahanbakar'	=> $kode_bahanbakar,
 				'jenis'				=> $jenis,
 				'id_satuan'			=> $id_satuan,
 				'keperluan'			=> $keperluan,
+				'stok'				=> $stok,
 			);
 			
 			$where = array(

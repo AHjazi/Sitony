@@ -24,7 +24,7 @@ class Akun extends CI_Controller {
 	}
 	public function _rules()
 	{
-		$this->form_validation->set_rules('id_user','username','password','nip','nama','divisi','email','no_telp','goldar','role','required');
+		$this->form_validation->set_rules('id_user','username','password','nip','nama','divisi','email','no_telp','goldar','file','role','required');
 		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
 		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
 	}
@@ -45,6 +45,7 @@ class Akun extends CI_Controller {
 			$email   	 		  = $this->input->post('email');
 			$no_telp   	 		  = $this->input->post('no_telp');
 			$goldar   	 		  = $this->input->post('goldar');
+			$file   	 		  = $this->input->post('file');
 			$role   	 		  = $this->input->post('role');
 
 			$data = array(
@@ -57,6 +58,7 @@ class Akun extends CI_Controller {
 				'email'			=> $email,
 				'no_telp'		=> $no_telp,
 				'goldar'		=> $goldar,
+				'file'			=> $file,
 				'role'			=> $role,
 			);
 

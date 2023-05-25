@@ -65,58 +65,38 @@
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
                     <li class="menu-item active">
-                        <a href="<?php echo base_url('dashboard')?>" class="menu-link">
+                        <a href="<?php echo base_url('./adming/dashboardpegawai')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
                     </li>
 
                     <!-- Layouts -->
-
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Pages</span>
                     </li>
                     <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-package"></i>
-                            <div data-i18n="Account Settings">Master Barang</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="<?php echo base_url('satuan')?>" class="menu-link">
-                                    <div data-i18n="Account">Satuan Barang </div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="<?php echo base_url('barangkantor')?>" class="menu-link">
-                                    <div data-i18n="Account">Barang Kantor </div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="<?php echo base_url('sparepart')?>" class="menu-link">
-                                    <div data-i18n="Notifications">Spare Part</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="<?php echo base_url('bahanbakar')?>" class="menu-link">
-                                    <div data-i18n="Connections">Bahan Bakar</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item">
-                        <a href="<?php echo base_url('permintaanbarang')?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-task"></i>
-                            <div data-i18n="Basic">Permintaan Barang</div>
-                        </a>
-                    </li>
-                    <!-- Components -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">User</span></li>
-                    <!-- Cards -->
-                    <li class="menu-item">
                         <a href="<?php echo base_url('./karyawan/detailkaryawan')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
-                            <div data-i18n="Basic">Akun</div>
+                            <div data-i18n="Basic">Detail Karyawan</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="<?php echo base_url('./karyawan/permintaan')?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-git-pull-request"></i>
+                            <div data-i18n="Basic">Permintaan</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="<?php echo base_url('./karyawan/tambahpermintaan')?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-add-to-queue"></i>
+                            <div data-i18n="Basic">Tambah Permintaan</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="<?php echo base_url('./karyawan/permintaan1')?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-add-to-queue"></i>
+                            <div data-i18n="Basic">Permintaan</div>
                         </a>
                     </li>
                 </ul>

@@ -32,10 +32,7 @@
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                     <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                        <div class="avatar avatar-online">
-                            <img src="<?= base_url();?>assets/img/avatars/1.png" alt
-                                class="w-px-40 h-auto rounded-circle" />
-                        </div>
+                        <span class="success"><i class="bx bx-user"></i></span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
@@ -70,7 +67,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="<?php echo base_url('./adming/detailakun')?>">
                                 <span class="d-flex align-items-center align-middle">
                                     <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
                                     <span class="flex-grow-1 align-middle">Billing</span>
@@ -83,7 +80,7 @@
                             <div class="dropdown-divider"></div>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="auth-login-basic.html">
+                            <a class="dropdown-item" href="<?php echo base_url('landing')?>">
                                 <i class="bx bx-power-off me-2"></i>
                                 <span class="align-middle">Log Out</span>
                             </a>

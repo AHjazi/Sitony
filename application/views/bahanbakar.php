@@ -14,6 +14,7 @@
                     <th>Jenis</th>
                     <th>Satuan</th>
                     <th>Keperluan</th>
+                    <th>Stok</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -26,6 +27,7 @@
                     <td><?php echo $p->jenis ?></td>
                     <td><?php echo $p->id_satuan ?></td>
                     <td><?php echo $p->keperluan ?></td>
+                    <td><?php echo $p->stok ?></td>
                     <td>
                         <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">

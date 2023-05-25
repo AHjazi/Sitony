@@ -50,7 +50,7 @@ class BarangKantor extends CI_Controller {
         </button>
       </div>');
     redirect('barangkantor');
-}
+	}
 
 	public function _rules()
 	{

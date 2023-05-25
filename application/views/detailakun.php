@@ -32,7 +32,7 @@
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-fullname2" class="input-group-text"><i
                                     class="bx bxs-user-circle"></i></span>
-                            <input type="text" class="form-control" id="basic-icon-default-fullname"
+                            <input type="text" class="form-control" id="basic-icon-default-fullname" name
                                 placeholder="Username" aria-label="NIK"
                                 aria-describedby="basic-icon-default-fullname2" />
                         </div>
