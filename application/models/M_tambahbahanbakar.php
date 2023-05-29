@@ -5,7 +5,16 @@ class M_tambahbahanbakar extends CI_Model
 
     public function show_data()
     {
-        return $this->db->get('bahanbakar')->result();
+       $this->db->select('id_bahanbakar,kode_bahanbakar, jenis, keperluan, stok, jenis_satuan');
+         $this->db->from('bahanbakar');
+            $this->db->join('satuan', 'satuan.id_satuan = bahanbakar.id_satuan');
+            $query = $this->db->get();
+            return $query;
+    }
+
+    public function getSatuan()
+    {
+        return $this->db->get('satuan')->result();
     }
 
     public function get_data($table){

@@ -7,7 +7,7 @@ class BahanBakar extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('M_tambahbahanbakar');
-		$data['bahanbakar'] = $this->M_tambahbahanbakar->show_data();
+		$data['bahanbakar'] = $this->M_tambahbahanbakar->show_data()->result();
 		// var_dump($data);exit;
 		$this->load->view('templates/adming/header');
         $this->load->view('templates/adming/sidebar');
@@ -17,10 +17,12 @@ class BahanBakar extends CI_Controller {
 	}
 	public function tambah_bahanbakar()
 	{
+		$data['satuan'] = $this->M_tambahbahanbakar->getSatuan();
+
 		$this->load->view('templates/adming/header');
         $this->load->view('templates/adming/sidebar');
 		$this->load->view('templates/adming/navbar');
-        $this->load->view('./adming/tambahbahanbakar');
+        $this->load->view('./adming/tambahbahanbakar', $data);
         $this->load->view('templates/adming/footer');
 	}
 
@@ -62,7 +64,7 @@ class BahanBakar extends CI_Controller {
 		$this->load->model('M_tambahbahanbakar');
 		$this->_rules();
 		if($this->form_validation->run() == FALSE){
-			$this->tambah();
+			$this->tambah();	
 		}else{
 			$id_bahanbakar	  	  = $this->input->post('id_bahanbakar');
 			$kode_bahanbakar 	  = $this->input->post('kode_bahanbakar');
