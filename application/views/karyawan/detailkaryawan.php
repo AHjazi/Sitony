@@ -26,14 +26,22 @@
             <div class="card-header d-flex justify-content-between align-items-center">
             </div>
             <div class="card-body">
-                <form>
+                <form action="<?php echo base_url('./karyawan/detailkaryawan/update_data_aksi/' . $akun['id_user'])?>"
+                    method="POST">
+                    <div class="mb-3 row">
+                        <!-- <label for="html5-text-input" class="col-md-2 col-form-label">ID</label> -->
+                        <div class="col-md-10">
+                            <input class="form-control" type="hidden" value="<?php echo $akun['id_user'] ?>"
+                                id="html5-text-input" name="id_user" />
+                        </div>
+                    </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-icon-default-fullname">Username</label>
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-fullname2" class="input-group-text"><i
                                     class="bx bxs-user-circle"></i></span>
-                            <input type="text" class="form-control" id="basic-icon-default-fullname"
-                                placeholder="Username" aria-label="NIK"
+                            <input type="text" value="<?php echo $akun['username']?>" class="form-control"
+                                id="basic-icon-default-fullname" placeholder="Username" aria-label="NIK" name="username"
                                 aria-describedby="basic-icon-default-fullname2" />
                         </div>
                     </div>
@@ -42,8 +50,8 @@
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-fullname2" class="input-group-text"><i
                                     class="bx bxs-lock"></i></span>
-                            <input type="text" class="form-control" id="basic-icon-default-fullname"
-                                placeholder="Password" aria-label="NIK"
+                            <input type="text" value="<?php echo $akun['password']?>" class="form-control"
+                                id="basic-icon-default-fullname" placeholder="Password" aria-label="NIK" name="password"
                                 aria-describedby="basic-icon-default-fullname2" />
                         </div>
                     </div>
@@ -52,8 +60,9 @@
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-fullname2" class="input-group-text"><i
                                     class="bx bxs-user-rectangle"></i></span>
-                            <input type="text" class="form-control" id="basic-icon-default-fullname" placeholder="NIP"
-                                aria-label="NIP" aria-describedby="basic-icon-default-fullname2" />
+                            <input type="text" value="<?php echo $akun['nip']?>" class="form-control"
+                                id="basic-icon-default-fullname" placeholder="NIP" aria-label="NIP" name="nip"
+                                aria-describedby="basic-icon-default-fullname2" />
                         </div>
                     </div>
                     <div class="mb-3">
@@ -61,8 +70,9 @@
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-company2" class="input-group-text"><i
                                     class="bx bx-user"></i></span>
-                            <input type="text" id="basic-icon-default-company" class="form-control" placeholder="Nama"
-                                aria-label="Nama" aria-describedby="basic-icon-default-company2" />
+                            <input type="text" value="<?php echo $akun['nama']?>" id="basic-icon-default-company"
+                                class="form-control" placeholder="Nama" aria-label="Nama" name="nama"
+                                aria-describedby="basic-icon-default-company2" />
                         </div>
                     </div>
                     <div class="mb-3">
@@ -70,16 +80,18 @@
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-company2" class="input-group-text"><i
                                     class="bx bx-street-view"></i></span>
-                            <input type="text" id="basic-icon-default-company" class="form-control" placeholder="Divisi"
-                                aria-label="Divisi" aria-describedby="basic-icon-default-company2" />
+                            <input type="text" value="<?php echo $akun['divisi']?>" id="basic-icon-default-company"
+                                class="form-control" placeholder="Divisi" aria-label="Divisi" name="divisi"
+                                aria-describedby="basic-icon-default-company2" />
                         </div>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="basic-icon-default-email">Email</label>
                         <div class="input-group input-group-merge">
                             <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                            <input type="text" id="basic-icon-default-email" class="form-control" placeholder="Email"
-                                aria-label="Email" aria-describedby="basic-icon-default-email2" />
+                            <input type="text" value="<?php echo $akun['email']?>" id="basic-icon-default-email"
+                                class="form-control" placeholder="Email" aria-label="Email" name="email"
+                                aria-describedby="basic-icon-default-email2" />
                             <span id="basic-icon-default-email2" class="input-group-text"></span>
                         </div>
                     </div>
@@ -88,8 +100,9 @@
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-phone2" class="input-group-text"><i
                                     class="bx bx-phone"></i></span>
-                            <input type="text" id="basic-icon-default-phone" class="form-control phone-mask"
-                                placeholder="+62" aria-label="+62" aria-describedby="basic-icon-default-phone2" />
+                            <input type="text" value="<?php echo $akun['no_telp']?>" id="basic-icon-default-phone"
+                                class="form-control phone-mask" placeholder="+62" name="no_telp" aria-label="+62"
+                                aria-describedby="basic-icon-default-phone2" />
                         </div>
                     </div>
                     <div class="mb-3">
@@ -97,9 +110,9 @@
                         <div class="input-group input-group-merge">
                             <span id="basic-icon-default-phone2" class="input-group-text"><i
                                     class="bx bxs-donate-blood"></i></span>
-                            <input type="text" id="basic-icon-default-phone" class="form-control phone-mask"
-                                placeholder="Golongan Darah" aria-label="+62"
-                                aria-describedby="basic-icon-default-phone2" />
+                            <input type="text" value="<?php echo $akun['goldar']?>" id="basic-icon-default-phone"
+                                class="form-control phone-mask" placeholder="Golongan Darah" name="goldar"
+                                aria-label="+62" aria-describedby="basic-icon-default-phone2" />
                         </div>
                     </div>
                     <div style="margin-left:10px;">

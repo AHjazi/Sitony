@@ -86,12 +86,15 @@
                             value="option3" />
                         <label class="form-check-label" for="inlineRadio3">Karyawan</label>
                     </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                            value="option3" />
+                        <label class="form-check-label" for="inlineRadio3">Pembelian</label>
+                    </div>
                 </div>
                 <div style="margin-left:10px;margin-top:20px;">
                     <a type="submit"><button class="btn rounded-pill btn-success"><i class='bx bxs-save'></i>
                             Simpan</i></button></a>
-                    <a type="reset"><button class="btn rounded-pill btn-danger"><i class='bx bx-reset'></i>
-                            Kembali</i></button></a>
                 </div>
             </form>
         </div>

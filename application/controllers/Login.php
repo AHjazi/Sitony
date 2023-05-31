@@ -49,6 +49,7 @@ class Login extends CI_Controller
             // Don't store the password in the session
             $this->session->set_userdata('id_role', $cek->id_role);
             $this->session->set_userdata('username', $cek->username);
+            $this->session->set_userdata('id_user', $cek->id_user);
     
             switch ($cek->id_role) {
                 case 1:

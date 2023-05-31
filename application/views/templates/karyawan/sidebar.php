@@ -65,7 +65,7 @@
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
                     <li class="menu-item active">
-                        <a href="<?php echo base_url('./adming/dashboardpegawai')?>" class="menu-link">
+                        <a href="<?php echo base_url('./karyawan/dashboardkaryawan')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
                         </a>
@@ -75,12 +75,12 @@
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Pages</span>
                     </li>
-                    <li class="menu-item">
-                        <a href="<?php echo base_url('./karyawan/detailkaryawan')?>" class="menu-link">
+                    <!-- <li class="menu-item">
+                        <a href="<?php echo base_url('karyawan/detailkaryawan?id=' . $id_user)?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
                             <div data-i18n="Basic">Detail Karyawan</div>
                         </a>
-                    </li>
+                    </li> -->
                     <li class="menu-item">
                         <a href="<?php echo base_url('./karyawan/permintaan')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-git-pull-request"></i>
@@ -88,15 +88,21 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="<?php echo base_url('./karyawan/tambahpermintaan')?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-add-to-queue"></i>
-                            <div data-i18n="Basic">Tambah Permintaan</div>
+                        <a href="<?php echo base_url('./karyawan/permintaankantor')?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bxs-component"></i>
+                            <div data-i18n="Basic">Permintaan Barang Kantor</div>
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="<?php echo base_url('./karyawan/permintaan1')?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-add-to-queue"></i>
-                            <div data-i18n="Basic">Permintaan</div>
+                        <a href="<?php echo base_url('./karyawan/permintaanbahanbakar')?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-gas-pump"></i>
+                            <div data-i18n="Basic">Permintaan Bahanbakar</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="<?php echo base_url('./karyawan/permintaansparepart')?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-cog"></i>
+                            <div data-i18n="Basic">Permintaan Sparepart</div>
                         </a>
                     </li>
                 </ul>
