@@ -18,15 +18,19 @@ class BarangKantor extends CI_Controller {
 
 	public function tambah_kantor()
 	{
+		$data['satuan'] = $this->db->query("SELECT * FROM satuan")->result();
+
 		$this->load->view('templates/adming/header');
         $this->load->view('templates/adming/sidebar');
 		$this->load->view('templates/adming/navbar');
-        $this->load->view('./adming/tambahkantor');
+        $this->load->view('./adming/tambahkantor',$data);
         $this->load->view('templates/adming/footer');
 	}
 
 	public function edit_kantor($id)
 	{
+		$data['satuan'] = $this->db->query("SELECT * FROM satuan")->result();
+
 		$this->load->model('M_tambahkantor');
 		$data['barangkantor'] = $this->M_tambahkantor->edit_kantor($id);
 		$this->load->view('templates/adming/header');
@@ -81,8 +85,15 @@ class BarangKantor extends CI_Controller {
 				'keperluan'		=> $keperluan,
 				'brand'			=> $brand,
 			);
-
+			$brg = array(
+				'kode_barang'		=> $kode_barang,
+				'nama_barang'		=> $nama_barang,
+				'tgl_barangmasuk'	=> date('Y-m-d'),
+				'jam_barangmasuk'	=> date('H:i:s'),
+				'jumlah'			=> $stok,
+			);
 			$this->M_tambahkantor->insert_data($data, 'barangkantor');
+			$this->M_tambahkantor->insert_data($brg, 'barangmasuk');
 			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
 			<strong>Data berhasil ditambahkan !</strong>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">

@@ -1,12 +1,11 @@
 <?php
 
-class M_tambahbahanbakar extends CI_Model
+class M_permintaansparepart extends CI_Model
 {
 
     public function show_data()
     {
-        return $this->db->query("SELECT * FROM bahanbakar s left join satuan sa on s.id_satuan=sa.id_satuan")->result();
-        return $this->db->query("SELECT * FROM bahanbakar s left join bahanbakar sa on s.id_bahanbakar=sa.id_bahanbakar")->result();
+        return $this->db->query("SELECT * FROM akun s left join role sa on s.id_role=sa.id_role left join divisi d on d.id_divisi=s.id_divisi")->result();
     }
     
     public function get_data($table){

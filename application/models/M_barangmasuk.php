@@ -1,14 +1,13 @@
 <?php
 
-class M_tambahbahanbakar extends CI_Model
+class M_barangmasuk extends CI_Model
 {
 
     public function show_data()
     {
-        return $this->db->query("SELECT * FROM bahanbakar s left join satuan sa on s.id_satuan=sa.id_satuan")->result();
-        return $this->db->query("SELECT * FROM bahanbakar s left join bahanbakar sa on s.id_bahanbakar=sa.id_bahanbakar")->result();
+        return $this->db->get('barangmasuk')->result();
     }
-    
+
     public function get_data($table){
         return $this->db->get($table);
     }
@@ -17,10 +16,6 @@ class M_tambahbahanbakar extends CI_Model
         $this->db->insert($table,$data);
     }
 
-    public function edit_bahanbakar($id)
-    {
-        return $this->db->get_where('bahanbakar',['id_bahanbakar'=> $id])->row_array();
-    }
     public function update_data($table,$data,$where){
         $this->db->update($table,$data,$where);
     }

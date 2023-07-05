@@ -5,7 +5,7 @@ class M_detailakun extends CI_Model
 
     public function show_data()
     {
-        return $this->db->get('akun')->result();
+        return $this->db->query("SELECT * FROM divisi s left join divisi sa on s.id_divisi=sa.id_divisi")->result();
     }
 
     public function get_data($table){

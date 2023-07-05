@@ -27,7 +27,7 @@
                     <td><?php echo $p->nama ?></td>
                     <td><?php echo $p->brand ?></td>
                     <td><?php echo $p->stok ?></td>
-                    <td><?php echo $p->id_satuan ?></td>
+                    <td><?php echo $p->jenis_satuan ?></td>
                     <td><?php echo $p->keperluan ?></td>
                     <td>
                         <div class="dropdown">

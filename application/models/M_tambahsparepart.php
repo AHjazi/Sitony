@@ -5,7 +5,7 @@ class M_tambahsparepart extends CI_Model
 
     public function show_data()
     {
-        return $this->db->get('sparepart')->result();
+        return $this->db->query("SELECT * FROM sparepart s left join satuan sa on s.id_satuan=sa.id_satuan")->result();
     }
 
     public function get_data($table){

@@ -2,7 +2,8 @@
     <h5 class="card-header">Data Bahan Bakar</h5>
     <div class="table-responsive text-nowrap">
         <td><a href="<?php echo base_url('bahanbakar/tambah_bahanbakar')?>"><button class="btn rounded-pill btn-primary"
-                    style="margin-left:20px"><i class='bx bxs-folder-plus'></i> Tambah
+                    style="margin-left:20px"><i class='bx bxs-folder-plus'></i>
+                    Tambah
                     Data</i></button></a></td>
         <table class="table table-striped">
             <thead>
@@ -25,7 +26,7 @@
                     <td><?php echo $p->id_bahanbakar ?></td>
                     <td><?php echo $p->kode_bahanbakar ?></td>
                     <td><?php echo $p->jenis ?></td>
-                    <td><?php echo $p->id_satuan ?></td>
+                    <td><?php echo $p->jenis_satuan ?></td>
                     <td><?php echo $p->keperluan ?></td>
                     <td><?php echo $p->stok ?></td>
                     <td>

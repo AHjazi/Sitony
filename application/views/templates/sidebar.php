@@ -78,8 +78,8 @@
                     </li>
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-package"></i>
-                            <div data-i18n="Account Settings">Master Barang</div>
+                            <i class="menu-icon tf-icons bx bx-slider-alt"></i>
+                            <div data-i18n="Account Settings">Master Data</div>
                         </a>
                         <ul class="menu-sub">
                             <li class="menu-item">
@@ -87,6 +87,20 @@
                                     <div data-i18n="Account">Satuan Barang </div>
                                 </a>
                             </li>
+                            <li class="menu-item">
+                                <a href="<?php echo base_url('divisi')?>" class="menu-link">
+                                    <div data-i18n="Basic">Divisi</div>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-package"></i>
+                            <div data-i18n="Account Settings">Master Barang</div>
+                        </a>
+                        <ul class="menu-sub">
                             <li class="menu-item">
                                 <a href="<?php echo base_url('barangkantor')?>" class="menu-link">
                                     <div data-i18n="Account">Barang Kantor </div>
@@ -138,12 +152,7 @@
                         </a>
                     </li>
                     <!-- User interface -->
-                    <li class="menu-item">
-                        <a href="<?php echo base_url('divisi')?>" class="menu-link">
-                            <i class="menu-icon tf-icons bx bxs-briefcase-alt-2"></i>
-                            <div data-i18n="Basic">Divisi</div>
-                        </a>
-                    </li>
+
 
                     <!-- Forms & Tables -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Laporan</span></li>

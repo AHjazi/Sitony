@@ -7,7 +7,7 @@ class BahanBakar extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('M_tambahbahanbakar');
-		$data['bahanbakar'] = $this->M_tambahbahanbakar->show_data()->result();
+		$data['bahanbakar'] = $this->M_tambahbahanbakar->show_data();
 		// var_dump($data);exit;
 		$this->load->view('templates/adming/header');
         $this->load->view('templates/adming/sidebar');
@@ -17,7 +17,7 @@ class BahanBakar extends CI_Controller {
 	}
 	public function tambah_bahanbakar()
 	{
-		$data['satuan'] = $this->M_tambahbahanbakar->getSatuan();
+		$data['satuan'] = $this->db->query("SELECT * FROM satuan")->result();
 
 		$this->load->view('templates/adming/header');
         $this->load->view('templates/adming/sidebar');
@@ -28,6 +28,8 @@ class BahanBakar extends CI_Controller {
 
 	public function edit_bahanbakar($id)
 	{
+		$data['satuan'] = $this->db->query("SELECT * FROM satuan")->result();
+		
 		$this->load->model('M_tambahbahanbakar');
 		$data['bahanbakar'] = $this->M_tambahbahanbakar->edit_bahanbakar($id);
 		$this->load->view('templates/adming/header');
@@ -81,7 +83,17 @@ class BahanBakar extends CI_Controller {
 				'stok'				=> $stok,
 			);
 
+			$brg = array(
+				'kode_barang'		=> $kode_bahanbakar,
+				'nama_barang'		=> $jenis,
+				'tgl_barangmasuk'	=> date('Y-m-d'),
+				'jam_barangmasuk'	=> date('H:i:s'),
+				'jumlah'			=> $stok,
+			);
+
 			$this->M_tambahbahanbakar->insert_data($data, 'bahanbakar');
+			$this->M_tambahbahanbakar->insert_data($brg, 'barangmasuk');
+
 			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
 			<strong>Data berhasil ditambahkan !</strong>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">

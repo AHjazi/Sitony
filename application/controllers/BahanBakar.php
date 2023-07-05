@@ -17,15 +17,18 @@ class BahanBakar extends CI_Controller {
 	}
 	public function tambah_bahanbakar()
 	{
+		$data['satuan'] = $this->db->query("SELECT * FROM satuan")->result();
+		
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
 		$this->load->view('templates/navbar');
-        $this->load->view('tambahbahanbakar');
+        $this->load->view('tambahbahanbakar',$data);
         $this->load->view('templates/footer');
 	}
 
 	public function edit_bahanbakar($id)
 	{
+		$data['satuan'] = $this->db->query("SELECT * FROM satuan")->result();
 		$this->load->model('M_tambahbahanbakar');
 		$data['bahanbakar'] = $this->M_tambahbahanbakar->edit_bahanbakar($id);
 		$this->load->view('templates/header');

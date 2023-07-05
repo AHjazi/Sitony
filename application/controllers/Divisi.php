@@ -17,6 +17,7 @@ class Divisi extends CI_Controller {
 
 	public function tambah_divisi()
 	{
+		
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
 		$this->load->view('templates/navbar');

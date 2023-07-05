@@ -31,9 +31,11 @@
                     <div class="col-md-10">
                         <select class="form-select" id="exampleFormControlSelect1" name="id_satuan"
                             aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">Pcs</option>
-                            <option value="2">Liter</option>
+                            <option selected>Pilih Satuan</option>
+                            <?php foreach ($satuan as $s){
+                                ?>;
+                            <option value="<?= $s->id_satuan?>"><?= $s->jenis_satuan ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>

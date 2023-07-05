@@ -3,11 +3,11 @@
     <div class="card mb-4">
         <h5 class="card-header">Tambah Permintaan Sparepart</h5>
         <div class="card-body">
-            <form action="<?php echo base_url('sparepart/tambah_data_aksi')?>" method="POST">
+            <form action="<?php echo base_url('./karyawan/permintaansparepart/tambah_data_aksi')?>" method="POST">
                 <div class="mb-3 row">
                     <label for="html5-text-input" class="col-md-2 col-form-label"></label>
                     <div class="col-md-10">
-                        <input class="form-control" type="hidden" name="id_sparepart" value="" id="html5-text-input" />
+                        <input class="form-control" type="hidden" value="" id="html5-text-input" name="id_permintaan" />
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -23,33 +23,33 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="html5-text-input" class="col-md-2 col-form-label">Divisi</label>
+                    <label for="html5-url-input" class="col-md-2 col-form-label">Divisi</label>
                     <div class="col-md-10">
-                        <input class="form-control" type="text" value="" id="html5-text-input" name="divisi" />
+                        <select class="form-select" id="exampleFormControlSelect1" name="divisi"
+                            aria-label="Default select example">
+                            <option selected>Pilih Divisi</option>
+                            <?php foreach ($divisi as $s){
+                                ?>;
+                            <option value="<?= $s->divisi?>"><?= $s->divisi ?></option>
+                            <?php } ?>
+                        </select>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <label for="html5-text-input" class="col-md-2 col-form-label">Kode Sparepart</label>
+                    <label for="html5-search-input" class="col-md-2 col-form-label">Nama Barang</label>
                     <div class="col-md-10">
-                        <input class="form-control" type="text" value="" name="kode_sparepart" id="html5-text-input" />
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="html5-search-input" class="col-md-2 col-form-label">Nama</label>
-                    <div class="col-md-10">
-                        <input class="form-control" type="text" value="" name="nama" id="html5-search-input" />
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="html5-email-input" class="col-md-2 col-form-label">Brand</label>
-                    <div class="col-md-10">
-                        <input class="form-control" type="text" value="" name="brand" id="html5-email-input" />
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="html5-url-input" class="col-md-2 col-form-label">Stok</label>
-                    <div class="col-md-10">
-                        <input class="form-control" type="number" value="" name="stok" id="html5-url-input" />
+                        <select class="form-select" id="exampleFormControlSelect1" name="nama_barang"
+                            aria-label="Default select example">
+                            <option selected disabled>--Pilih--</option>
+                            <?php
+                            foreach ($barang as $key) {
+                                ?>
+                            <option value="<?php echo $key->nama ?>"><?php echo $key->nama ?></option>
+                            <?php
+                            }
+                            ?>
+
+                        </select>
                     </div>
                 </div>
                 <div class="mb-3 row">
@@ -57,9 +57,11 @@
                     <div class="col-md-10">
                         <select class="form-select" id="exampleFormControlSelect1" name="id_satuan"
                             aria-label="Default select example">
-                            <option selected>Open this select menu</option>
-                            <option value="1">Pcs</option>
-                            <option value="2">Liter</option>
+                            <option selected>Pilih Satuan</option>
+                            <?php foreach ($satuan as $s){
+                                ?>;
+                            <option value="<?= $s->id_satuan?>"><?= $s->jenis_satuan ?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
@@ -69,11 +71,17 @@
                         <input class="form-control" type="text" value="" name="keperluan" id="html5-password-input" />
                     </div>
                 </div>
+                <div class="mb-3 row">
+                    <label for="html5-password-input" class="col-md-2 col-form-label">Jumlah</label>
+                    <div class="col-md-10">
+                        <input class="form-control" type="number" value="" name="jumlah" id="html5-password-input" />
+                    </div>
+                </div>
                 <div style="margin-left:10px;margin-top:10px;">
                     <a type="submit"><button class="btn rounded-pill btn-success"><i class='bx bxs-save'></i>
                             Simpan</i></button></a>
                 </div>
             </form>
-
         </div>
+        </form>
     </div>

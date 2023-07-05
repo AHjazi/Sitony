@@ -18,15 +18,17 @@ class BarangKantor extends CI_Controller {
 
 	public function tambah_kantor()
 	{
+		$data['satuan'] = $this->db->query("SELECT * FROM satuan")->result();
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
 		$this->load->view('templates/navbar');
-        $this->load->view('tambahkantor');
+        $this->load->view('tambahkantor',$data);
         $this->load->view('templates/footer');
 	}
 
 	public function edit_kantor($id)
 	{
+		$data['satuan'] = $this->db->query("SELECT * FROM satuan")->result();
 		$this->load->model('M_tambahkantor');
 		$data['barangkantor'] = $this->M_tambahkantor->edit_kantor($id);
 		$this->load->view('templates/header');

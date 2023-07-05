@@ -76,6 +76,12 @@
                         <span class="menu-header-text">Pages</span>
                     </li>
                     <li class="menu-item">
+                        <a href="<?php echo base_url('./adming/barangmasuk')?>" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-archive-in"></i>
+                            <div data-i18n="Basic">Barang Masuk</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
                         <a href="<?php echo base_url('./adming/satuan')?>" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-data"></i>
                             <div data-i18n="Basic">Satuan</div>

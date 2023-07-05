@@ -16,15 +16,19 @@ class SparePart extends CI_Controller {
 	}
 	public function tambah_sparepart()
 	{
+		$data['satuan'] = $this->db->query("SELECT * FROM satuan")->result();
+		
 		$this->load->view('templates/adming/header');
         $this->load->view('templates/adming/sidebar');
 		$this->load->view('templates/adming/navbar');
-        $this->load->view('./adming/tambahsparepart');
+        $this->load->view('./adming/tambahsparepart',$data);
         $this->load->view('templates/adming/footer');
 	}
 
 	public function edit_sparepart($id)
 	{
+		$data['satuan'] = $this->db->query("SELECT * FROM satuan")->result();
+		
 		$this->load->model('M_tambahsparepart');
 		$data['sparepart'] = $this->M_tambahsparepart->edit_sparepart($id);
 		$this->load->view('templates/adming/header');
@@ -79,8 +83,16 @@ class SparePart extends CI_Controller {
 				'id_satuan'			=> $id_satuan,
 				'keperluan'			=> $keperluan,
 			);
+			$brg = array(
+				'kode_barang'		=> $kode_sparepart,
+				'nama_barang'		=> $nama,
+				'tgl_barangmasuk'	=> date('Y-m-d'),
+				'jam_barangmasuk'	=> date('H:i:s'),
+				'jumlah'			=> $stok,
+			);
 
 			$this->M_tambahsparepart->insert_data($data, 'sparepart');
+			$this->M_tambahsparepart->insert_data($brg, 'barangmasuk');
 			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
 			<strong>Data berhasil ditambahkan !</strong>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">

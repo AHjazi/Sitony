@@ -16,15 +16,17 @@ class SparePart extends CI_Controller {
 	}
 	public function tambah_sparepart()
 	{
+		$data['satuan'] = $this->db->query("SELECT * FROM satuan")->result();
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
 		$this->load->view('templates/navbar');
-        $this->load->view('tambahsparepart');
+        $this->load->view('tambahsparepart',$data);
         $this->load->view('templates/footer');
 	}
 
 	public function edit_sparepart($id)
 	{
+		$data['satuan'] = $this->db->query("SELECT * FROM satuan")->result();
 		$this->load->model('M_tambahsparepart');
 		$data['sparepart'] = $this->M_tambahsparepart->edit_sparepart($id);
 		$this->load->view('templates/header');
