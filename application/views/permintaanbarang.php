@@ -5,61 +5,70 @@
             <thead>
                 <tr>
                     <th>No</th>
-                    <th>Kode Barang</th>
+                    <th>ID Permintaan</th>
                     <th>Nama Barang</th>
                     <th>Nama Karyawan</th>
                     <th>Divisi</th>
+                    <th>Jumlah</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
             <tbody class="table-border-bottom-0">
                 <tr>
-                    <td>1.</td>
-                    <td>Albert Cook</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                    <td>
-                    <td>
-                        <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="<?php echo base_url('detailpermintaan')?>"><i
-                                        class="bx bx-message-alt-error me-1"></i>
-                                    Detail</a>
-                                <a class="dropdown-item" href="<?php echo base_url('eksekusipermintaan')?>"><i
-                                        class="bx bx-task me-1"></i>
-                                    Eksekusi</a>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
+                    <?php $no=1; foreach($permintaan as $p) :?>
                 <tr>
-                    <td>2.</td>
-                    <td>Katak Bizer</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><?php echo $no++ ?></td>
+                    <td><?php echo $p->id_permintaan ?></td>
+                    <td><?php echo $p->nama_barang ?></td>
+                    <td><?php echo $p->nama_pegawai ?></td>
+                    <td><?php echo $p->divisi ?></td>
+                    <td><?php echo $p->jumlah ?></td>
                     <td>
-                    <td>
-                    <td>
-                        <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
+                        <div class="mt-3">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#modalCenter">
+                                Eksekusi
                             </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="javascript:void(0);"><i
-                                        class="bx bx-message-alt-error me-1"></i>
-                                    Detail</a>
-                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-task me-1"></i>
-                                    Eksekusi</a>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalCenterTitle">PENGISIAN PETUGAS</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="col mb-3">
+                                                    <label for="nameWithTitle" class="form-label">Name Petugas</label>
+                                                    <input type="text" id="nameWithTitle" class="form-control"
+                                                        placeholder="Enter Name" />
+                                                </div>
+                                            </div>
+                                            <div class="col mb-3">
+                                                <label for="nameWithTitle" class="form-label">Tanggal</label>
+                                                <input type="date" id="nameWithTitle" class="form-control"
+                                                    placeholder="DD / MM / YY" />
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-secondary"
+                                                data-bs-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <button href="<?php echo base_url('permintaanbarang/eksekusipermintaan')?>"
+                                                type="button" class="btn btn-primary">Terima Permintaan</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </td>
                 </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
