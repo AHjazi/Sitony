@@ -28,4 +28,20 @@ class M_permintaansparepart extends CI_Model
         $this->db->where($where);
         $this->db->delete($table);
     }
+
+    public function check_quantity($nama_barang, $jumlah)
+    {
+        $this->db->select('stok');
+        $this->db->from('sparepart');
+        $this->db->where('nama_barang', $nama_barang);
+        $query = $this->db->get();
+        $stok = $query->row()->stok;
+
+        // Check if the quantity in the database is less than or equal to 10
+        if ($stok <= 10) {
+            return false;
+        }
+        
+        return true;
+    }
 }

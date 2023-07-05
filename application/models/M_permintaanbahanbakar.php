@@ -32,8 +32,8 @@ class M_permintaanbahanbakar extends CI_Model
      public function check_quantity($nama_barang, $jumlah)
     {
         $this->db->select('stok');
-        $this->db->from('barangkantor');
-        $this->db->where('nama_barang', $nama_barang);
+        $this->db->from('bahanbakar');
+        $this->db->where('jenis', $nama_barang);
         $query = $this->db->get();
         $stok = $query->row()->stok;
 

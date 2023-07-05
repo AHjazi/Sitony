@@ -41,7 +41,7 @@ public function tambah_data_aksi()
         $status = 'Belum Disetujui';
 
         // Check if the quantity in the database is less than or equal to 10
-        $isQuantityValid = $this->M_permintaan->check_quantity($nama_barang, $jumlah);
+        $isQuantityValid = $this->M_permintaanbahanbakar->check_quantity($nama_barang, $jumlah);
         if (!$isQuantityValid) {
             $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
             <strong>Jumlah tidak memenuhi syarat!</strong> Jumlah yang tersedia kurang dari 10.

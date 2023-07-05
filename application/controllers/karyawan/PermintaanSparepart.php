@@ -23,21 +23,35 @@ class PermintaanSparepart extends CI_Controller {
 		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
 	}
 	public function tambah_data_aksi()
-	{
-		$this->load->model('M_permintaansparepart');
-		$this->_rules();
-		if($this->form_validation->run() == FALSE){
-			$this->tambah();
-		}else{
-			$id_permintaan	  	  = $this->input->post('id_permintaan');
-			$nip 	 			  = $this->input->post('nip');
-			$nama_barang		  = $this->input->post('nama_barang');
-			$id_satuan		  	  = $this->input->post('id_satuan');
-			$nama_pegawai   	  = $this->input->post('nama');
-			$divisi 	  	 	  = $this->input->post('divisi');
-			$keperluan 	  	 	  = $this->input->post('keperluan');
-			$jumlah 	  	 	  = $this->input->post('jumlah');
-		 $status = 'Belum Disetujui';
+{
+    $this->load->model('M_permintaansparepart');
+    $this->load->model('M_permintaan');
+    $this->_rules();
+    if ($this->form_validation->run() == FALSE) {
+        $this->tambah();
+    } else {
+        $id_permintaan = $this->input->post('id_permintaan');
+        $nip = $this->input->post('nip');
+        $nama_barang = $this->input->post('nama_barang');
+        $id_satuan = $this->input->post('id_satuan');
+        $nama_pegawai = $this->input->post('nama');
+        $divisi = $this->input->post('divisi');
+        $keperluan = $this->input->post('keperluan');
+        $jumlah = $this->input->post('jumlah');
+        $status = 'Belum Disetujui';
+
+        // Check if the quantity in the database is less than or equal to 10
+        $isQuantityValid = $this->M_permintaansparepart->check_quantity($nama_barang, $jumlah);
+        if (!$isQuantityValid) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Jumlah tidak memenuhi syarat!</strong> Jumlah yang tersedia kurang dari 10.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>');
+          redirect('./karyawan/permintaan');
+        }
+
         $data = array(
             'id_permintaan' => $id_permintaan,
             'nip' => $nip,
@@ -50,16 +64,19 @@ class PermintaanSparepart extends CI_Controller {
             'status' => $status
         );
 
-			$this->M_permintaansparepart->insert_data($data, 'permintaan');
-			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
-			<strong>Data berhasil ditambahkan !</strong>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
-		  </div>');
-		  redirect('./karyawan/permintaan');
-		}
-	
-	}
+        $this->M_permintaanbsparepart->insert_data($data, 'permintaan');
+
+        // $this->M_permintaan->update_jumlah();
+
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Data berhasil ditambahkan !</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>');
+      redirect('./karyawan/permintaan');
+    }
+
+}
 
 }
