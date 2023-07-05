@@ -37,16 +37,18 @@ class PermintaanSparepart extends CI_Controller {
 			$divisi 	  	 	  = $this->input->post('divisi');
 			$keperluan 	  	 	  = $this->input->post('keperluan');
 			$jumlah 	  	 	  = $this->input->post('jumlah');
-			$data = array(
-				'id_permintaan'		=> $id_permintaan,
-				'nip'				=> $nip,
-				'nama_barang'		=> $nama_barang,
-				'id_satuan'			=> $id_satuan,
-				'nama_pegawai'		=> $nama_pegawai,
-				'divisi'			=> $divisi,
-				'keperluan'			=> $keperluan,
-				'jumlah'			=> $jumlah,
-			);
+		 $status = 'Belum Disetujui';
+        $data = array(
+            'id_permintaan' => $id_permintaan,
+            'nip' => $nip,
+            'nama_barang' => $nama_barang,
+            'id_satuan' => $id_satuan,
+            'nama_pegawai' => $nama_pegawai,
+            'divisi' => $divisi,
+            'keperluan' => $keperluan,
+            'jumlah' => $jumlah,
+            'status' => $status
+        );
 
 			$this->M_permintaansparepart->insert_data($data, 'permintaan');
 			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">

@@ -28,6 +28,7 @@
                     <td><?php echo $p->divisi ?></td>
                     <td><?php echo $p->keperluan ?></td>
                     <td><?php echo $p->jumlah ?></td>
+                    <td><?php echo $p->status ?></td>
 
                 </tr>
             </tbody>

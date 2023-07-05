@@ -25,10 +25,5 @@ class PermintaanBarang extends CI_Controller {
 	  </div>');
 		redirect('PermintaanBarang');
 	}
-	public function _rules()
-	{
-		$this->form_validation->set_rules('id_permintaan','nama_barang','nama_pegawai','id_divisi','jumlah','required');
-		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
-		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
-	}
+
 }

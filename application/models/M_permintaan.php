@@ -26,7 +26,9 @@ class M_permintaan extends CI_Model
     }
 
 public function update_jumlah() {
- $query = $this->db->query('
+    $this->db->trans_start();
+
+    $this->db->query('
         UPDATE bahanbakar bb
         INNER JOIN (
             SELECT nama_barang, jumlah
@@ -36,7 +38,7 @@ public function update_jumlah() {
         SET bb.stok = bb.stok - p.jumlah
     ');
 
-    $query = $this->db->query('
+    $this->db->query('
         UPDATE barangkantor b
         INNER JOIN (
             SELECT nama_barang, jumlah
@@ -46,7 +48,7 @@ public function update_jumlah() {
         SET b.stok = b.stok - p.jumlah
     ');
 
-    $query = $this->db->query('
+    $this->db->query('
         UPDATE sparepart s
         INNER JOIN (
             SELECT nama_barang, jumlah
@@ -56,7 +58,16 @@ public function update_jumlah() {
         SET s.stok = s.stok - p.jumlah
     ');
 
-    return $query;
+    $this->db->query('
+        UPDATE permintaan
+        SET status = "Disetujui"
+        WHERE nama_barang IS NOT NULL
+    ');
+
+    $this->db->trans_complete();
+
+    return $this->db->trans_status();
 }
+
 
 }

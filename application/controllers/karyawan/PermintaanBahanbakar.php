@@ -22,7 +22,7 @@ class PermintaanBahanBakar extends CI_Controller {
 		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
 		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
 	}
-	public function tambah_data_aksi()
+public function tambah_data_aksi()
 {
     $this->load->model('M_permintaanbahanbakar');
     $this->load->model('M_permintaan');
@@ -38,6 +38,20 @@ class PermintaanBahanBakar extends CI_Controller {
         $divisi = $this->input->post('divisi');
         $keperluan = $this->input->post('keperluan');
         $jumlah = $this->input->post('jumlah');
+        $status = 'Belum Disetujui';
+
+        // Check if the quantity in the database is less than or equal to 10
+        $isQuantityValid = $this->M_permintaan->check_quantity($nama_barang, $jumlah);
+        if (!$isQuantityValid) {
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Jumlah tidak memenuhi syarat!</strong> Jumlah yang tersedia kurang dari 10.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>');
+          redirect('./karyawan/permintaan');
+        }
+
         $data = array(
             'id_permintaan' => $id_permintaan,
             'nip' => $nip,
@@ -47,6 +61,7 @@ class PermintaanBahanBakar extends CI_Controller {
             'divisi' => $divisi,
             'keperluan' => $keperluan,
             'jumlah' => $jumlah,
+            'status' => $status
         );
 
         $this->M_permintaanbahanbakar->insert_data($data, 'permintaan');
@@ -62,5 +77,6 @@ class PermintaanBahanBakar extends CI_Controller {
       redirect('./karyawan/permintaan');
     }
 
-	}
+}
+
 }
