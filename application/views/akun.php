@@ -28,7 +28,10 @@
                         <td><?php echo $no++ ?></td>
                         <td><?php echo $p->id_user ?></td>
                         <td><?php echo $p->username ?></td>
-                        <td><?php echo $p->password ?></td>
+                       <td class="password-input">
+  <input type="password" value="<?php echo $p->password ?>">
+  <span class="password-toggle">&#x1f441;</span>
+</td>
                         <td><?php echo $p->nip ?></td>
                         <td><?php echo $p->nama ?></td>
                         <td><?php echo $p->divisi ?></td>

@@ -43,4 +43,19 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="<?= base_url(); ?>assets/js/config.js"></script>
+<style>
+  .password-input {
+    position: relative;
+    display: inline-block;
+  }
+
+  .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+  }
+</style>
 </head>

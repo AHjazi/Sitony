@@ -12,4 +12,15 @@ class EksekusiPermintaan extends CI_Controller {
         $this->load->view('eksekusipermintaan');
         $this->load->view('templates/footer');
 	}
+
+	public function eksekusipermintaan()
+	{
+		$this->load->model('M_permintaan');
+		$this->M_permintaan->update_jumlah();
+		$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
+		<strong>Permintaan Berhasil Di Eksekusi!</strong> Silahkan Cek Data Permintaan.
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	  </div>');
+		redirect('PermintaanBarang');
+	}
 }

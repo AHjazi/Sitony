@@ -19,3 +19,16 @@
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<script>
+  document.querySelector('.password-toggle').addEventListener('click', function() {
+    var passwordInput = this.previousElementSibling;
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      this.innerHTML = '&#x1f576;';
+    } else {
+      passwordInput.type = 'password';
+      this.innerHTML = '&#x1f441;';
+    }
+  });
+</script>

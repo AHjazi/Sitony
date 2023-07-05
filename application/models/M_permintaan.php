@@ -24,4 +24,39 @@ class M_permintaan extends CI_Model
         $this->db->where($where);
         $this->db->delete($table);
     }
+
+public function update_jumlah() {
+ $query = $this->db->query('
+        UPDATE bahanbakar bb
+        INNER JOIN (
+            SELECT nama_barang, jumlah
+            FROM permintaan
+            WHERE nama_barang IS NOT NULL
+        ) p ON bb.jenis = p.nama_barang
+        SET bb.stok = bb.stok - p.jumlah
+    ');
+
+    $query = $this->db->query('
+        UPDATE barangkantor b
+        INNER JOIN (
+            SELECT nama_barang, jumlah
+            FROM permintaan
+            WHERE nama_barang IS NOT NULL
+        ) p ON b.nama_barang = p.nama_barang
+        SET b.stok = b.stok - p.jumlah
+    ');
+
+    $query = $this->db->query('
+        UPDATE sparepart s
+        INNER JOIN (
+            SELECT nama_barang, jumlah
+            FROM permintaan
+            WHERE nama_barang IS NOT NULL
+        ) p ON s.nama = p.nama_barang
+        SET s.stok = s.stok - p.jumlah
+    ');
+
+    return $query;
+}
+
 }
