@@ -4,53 +4,29 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>Kode Barang</th>
-                    <th>Tanggal</th>
+                    <th>ID Barang Keluar</th>
+                    <th>Tanggal Barang Keluar</th>
                     <th>Nama Barang</th>
                     <th>Jumlah</th>
                     <th>Penerima</th>
                     <th>Petugas</th>
-                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
+                <?php $no = 1; foreach ($barangkeluar as $p) : ?>
                 <tr>
-                    <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>Angular Project</strong></td>
-                    <td>Albert Cook</td>
-                    <td></td>
+                    <td><?php echo $no++ ?></td>
+                    <td><?php echo $p->id_barangkeluar ?></td>
+                    <td><?php echo $p->tgl_barangkeluar ?></td>
+                    <td><?php echo $p->nama_pegawai ?></td>
+                    <td><?php echo $p->jumlah ?></td>
+                    <td><?php echo $p->penerima ?></td>
+                    <td><?php echo $p->petugas ?></td>
                     <td></td>
                     <td>
-                        <ul class="list-unstyled users-list m-0 avatar-group d-flex align-items-center">
-                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                                class="avatar avatar-xs pull-up" title="Lilian Fuller">
-                                <img src="../assets/img/avatars/5.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                                class="avatar avatar-xs pull-up" title="Sophia Wilkerson">
-                                <img src="../assets/img/avatars/6.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                            <li data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top"
-                                class="avatar avatar-xs pull-up" title="Christina Parker">
-                                <img src="../assets/img/avatars/7.png" alt="Avatar" class="rounded-circle" />
-                            </li>
-                        </ul>
-                    </td>
-                    <td><span class="badge bg-label-primary me-1">Active</span></td>
-                    <td>
-                        <div class="dropdown">
-                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="<?php echo base_url('editbarangkeluar')?>"><i
-                                        class="bx bx-edit-alt me-1"></i>
-                                    Edit</a>
-                                <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-trash me-1"></i>
-                                    Delete</a>
-                            </div>
-                        </div>
                     </td>
                 </tr>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
