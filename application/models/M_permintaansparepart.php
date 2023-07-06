@@ -33,7 +33,7 @@ class M_permintaansparepart extends CI_Model
     {
         $this->db->select('stok');
         $this->db->from('sparepart');
-        $this->db->where('nama_barang', $nama_barang);
+        $this->db->where('nama', $nama_barang);
         $query = $this->db->get();
         $stok = $query->row()->stok;
 

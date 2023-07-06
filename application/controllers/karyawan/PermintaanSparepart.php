@@ -18,7 +18,7 @@ class PermintaanSparepart extends CI_Controller {
 
 	public function _rules()
 	{
-		$this->form_validation->set_rules('id_permintaan','nip','nama_barang','id_satuan','nama_pegawai','id_divisi','keperluan','jumlah','required');
+		$this->form_validation->set_rules('id_permintaan','nip','nama_barang','id_satuan','nama_pegawai','id_divisi','keperluan','file','jumlah','required');
 		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
 		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
 	}
@@ -30,6 +30,17 @@ class PermintaanSparepart extends CI_Controller {
     if ($this->form_validation->run() == FALSE) {
         $this->tambah();
     } else {
+      $config['upload_path'] = './assets/file/';
+      $config['allowed_types'] = 'pdf';
+      $config['max_size'] = 10000;
+      $config['max_width'] = 10000;
+      $config['max_height'] = 10000;
+
+      $this->load->library('upload', $config);
+
+      if (!$this->upload->do_upload('file')) {
+          echo "Gagal Tambah";
+        } else {
         $id_permintaan = $this->input->post('id_permintaan');
         $nip = $this->input->post('nip');
         $nama_barang = $this->input->post('nama_barang');
@@ -37,8 +48,10 @@ class PermintaanSparepart extends CI_Controller {
         $nama_pegawai = $this->input->post('nama');
         $divisi = $this->input->post('divisi');
         $keperluan = $this->input->post('keperluan');
+        $file = $this->input->post('file');
         $jumlah = $this->input->post('jumlah');
         $status = 'Belum Disetujui';
+        $file = $this->upload->data('file_name');
 
         // Check if the quantity in the database is less than or equal to 10
         $isQuantityValid = $this->M_permintaansparepart->check_quantity($nama_barang, $jumlah);
@@ -60,6 +73,7 @@ class PermintaanSparepart extends CI_Controller {
             'nama_pegawai' => $nama_pegawai,
             'divisi' => $divisi,
             'keperluan' => $keperluan,
+            'file' => $file,
             'jumlah' => $jumlah,
             'status' => $status
         );
@@ -78,5 +92,5 @@ class PermintaanSparepart extends CI_Controller {
     }
 
 }
-
+}
 }
