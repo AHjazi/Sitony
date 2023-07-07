@@ -16,9 +16,8 @@
                 <?php $no = 1; foreach ($barangkeluar as $p) : ?>
                 <tr>
                     <td><?php echo $no++ ?></td>
-                    <td><?php echo $p->id_barangkeluar ?></td>
                     <td><?php echo $p->tgl_barangkeluar ?></td>
-                    <td><?php echo $p->nama_pegawai ?></td>
+                    <td><?php echo $p->nama_barang ?></td>
                     <td><?php echo $p->jumlah ?></td>
                     <td><?php echo $p->penerima ?></td>
                     <td><?php echo $p->petugas ?></td>
