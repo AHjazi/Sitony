@@ -23,11 +23,13 @@
                     <td><?php echo $p->nama_barang ?></td>
                     <td><?php echo $p->nama_pegawai ?></td>
                     <td><?php echo $p->divisi ?></td>
-                    <td> <?php if ($p->file !== null && $p->file !== '') : ?>
+                    <td>
+                        <?php if ($p->file !== null && $p->file !== '') : ?>
                         <a href="<?php echo site_url('assets/file/' . $p->file); ?>" target="_blank">Buka File</a>
                         <?php else : ?>
                         (Tidak ada file)
                         <?php endif; ?>
+
                     </td>
                     <td><?php echo $p->jumlah ?></td>
                     <td><?php echo $p->status ?></td>

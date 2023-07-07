@@ -12,7 +12,7 @@ class M_permintaansparepart extends CI_Model
         return $this->db->get($table);
     }
 
-    public function insert_data($data,$table){
+    public function insert_data($table,$data){
         $this->db->insert($table,$data);
     }
 

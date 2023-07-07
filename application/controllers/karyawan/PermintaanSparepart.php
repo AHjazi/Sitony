@@ -78,7 +78,7 @@ class PermintaanSparepart extends CI_Controller {
             'status' => $status
         );
 
-        $this->M_permintaanbsparepart->insert_data($data, 'permintaan');
+        $this->M_permintaansparepart->insert_data('permintaan',$data);
 
         // $this->M_permintaan->update_jumlah();
 
