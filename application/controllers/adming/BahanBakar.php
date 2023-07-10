@@ -7,7 +7,11 @@ class BahanBakar extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('M_tambahbahanbakar');
+<<<<<<< HEAD
 		$data['bahanbakar'] = $this->M_tambahbahanbakar->show_data();
+=======
+		$data['bahanbakar'] = $this->M_tambahbahanbakar->show_data()->result();
+>>>>>>> 5e98e1da89d85e0789547edd8694d1c03c7336f0
 		// var_dump($data);exit;
 		$this->load->view('templates/adming/header');
         $this->load->view('templates/adming/sidebar');

@@ -75,8 +75,6 @@ class BarangKantor extends CI_Controller {
 			$stok   	  		  = $this->input->post('stok');
 			$keperluan 	  	 	  = $this->input->post('keperluan');
 			$brand   	 		  = $this->input->post('brand');
-			$tgl_barangmasuk 	  = date('Y-m-d');
-			$jam_barangmasuk 	  = time('H:i:s');
 
 			$data = array(
 				'id_barang'		=> $id_barang,
@@ -90,8 +88,8 @@ class BarangKantor extends CI_Controller {
 			$brg = array(
 				'kode_barang'		=> $kode_barang,
 				'nama_barang'		=> $nama_barang,
-				'tgl_barangmasuk'	=> $tgl_barangmasuk,
-				'jam_barangmasuk'	=> $jam_barangmasuk,
+				'tgl_barangmasuk'	=> date('Y-m-d'),
+				'jam_barangmasuk'	=> date('H:i:s'),
 				'jumlah'			=> $stok,
 			);
 			$this->M_tambahkantor->insert_data($data, 'barangkantor');
