@@ -69,5 +69,13 @@ public function update_jumlah() {
     return $this->db->trans_status();
 }
 
+public function cetak()
+{
+    $this->db->select('*');
+    $this->db->from('permintaan');
+    $query = $this->db->get();
+    return $query;
+}
+
 
 }
