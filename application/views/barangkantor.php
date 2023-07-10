@@ -43,12 +43,12 @@
                                     href="<?php echo base_url('barangkantor/hapus_kantor/'. $p->id_barang)?>"><i
                                         class="bx bx-trash me-1"></i>
                                     Delete</a>
+                                < </div>
                             </div>
-                        </div>
                     </td>
                 </tr>
+                <?php endforeach; ?>
             </tbody>
-            <?php endforeach; ?>
         </table>
     </div>
 </div>
