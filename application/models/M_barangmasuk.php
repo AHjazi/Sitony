@@ -8,6 +8,14 @@ class M_barangmasuk extends CI_Model
         return $this->db->get('barangmasuk')->result();
     }
 
+    public function cetak()
+{
+    $this->db->select('*');
+    $this->db->from('barangmasuk');
+    $query = $this->db->get();
+    return $query;
+}
+
     public function get_data($table){
         return $this->db->get($table);
     }
