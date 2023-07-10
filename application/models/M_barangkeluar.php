@@ -52,4 +52,12 @@ public function insert_data_keluar()
         $this->db->where($where);
         $this->db->delete($table);
     }
+
+        public function cetak()
+{
+    $this->db->select('*');
+    $this->db->from('barangkeluar');
+    $query = $this->db->get();
+    return $query;
+}
 }

@@ -1,44 +1,49 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-use PhpOffice\PhpSpreadsheet\Helper\Sample;
-use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use PhpOffice\PhpSpreadsheet\Style\Font;
-use PhpOffice\PhpSpreadsheet\Style\Fill;
-use PhpOffice\PhpSpreadsheet\Style\Border;
-use PhpOffice\PhpSpreadsheet\Style\Color;
+require_once('vendor\fpdf\fpdf.php');
 
 class LaporanPermintaanBarang extends CI_Controller {
 
- public function exportpdf()
+    public function exportpdf()
     {
         // Load model data
         $data = $this->M_permintaan->cetak()->result();
 
-        // Create new Spreadsheet object
-        $spreadsheet = new Spreadsheet();
+        // Initialize FPDF object
+        $pdf = new FPDF();
 
-        // Create new worksheet
-        $worksheet = $spreadsheet->getActiveSheet();
+        // Add a page
+        $pdf->AddPage();
 
-        // Set page properties
-        $worksheet->getPageSetup()->setPaperSize(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_A4);
+        // Set font
+        $pdf->SetFont('Arial', 'B', 12);
 
-        // Add data and styles to the worksheet
-        // ... your code here ...
+        // Title
+        $pdf->Cell(0, 10, 'Laporan Permintaan Barang', 0, 1, 'C');
+        $pdf->Ln(5);
 
-        // Generate PDF from the Spreadsheet
-        $writer = IOFactory::createWriter($spreadsheet, 'Mpdf');
-        $writer->save('permintaan_barang.pdf');
+        // Table headers
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(10, 7, 'No', 1, 0, 'C');
+        $pdf->Cell(30, 7, 'Nama Barang', 1, 0, 'C');
+        $pdf->Cell(40, 7, 'Nama Pegawai', 1, 0, 'C');
+        $pdf->Cell(40, 7, 'Jumlah', 1, 0, 'C');
+        $pdf->Cell(30, 7, 'Divisi', 1, 1, 'C');
 
-        // Set headers to force download the PDF file
-        header('Content-Type: application/pdf');
-        header('Content-Disposition: attachment; filename="permintaan_barang.pdf"');
-        header('Cache-Control: max-age=0');
+        // Table data
+        $pdf->SetFont('Arial', '', 10);
+        $no = 1;
+        foreach ($data as $row) {
+            $pdf->Cell(10, 7, $no++, 1, 0, 'C');
+            $pdf->Cell(30, 7, $row->nama_barang, 1, 0, 'C');
+            $pdf->Cell(40, 7, $row->nama_pegawai, 1, 0, 'C');
+            $pdf->Cell(40, 7, $row->jumlah, 1, 0, 'C');
+            $pdf->Cell(30, 7, $row->divisi, 1, 1, 'C');
+        }
 
         // Output the PDF file
-        readfile('permintaan_barang.pdf');
+        $pdf->Output('permintaan_barang.pdf', 'D');
     }
+
 }

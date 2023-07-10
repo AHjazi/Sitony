@@ -1,5 +1,8 @@
 <div class="card mb-4" style="margin-left:25px;margin-right:25px;margin-top:25px;">
     <h5 class="card-header">Data Barang Barang Masuk</h5>
+     <div class="p-3">
+            <a href="<?php echo base_url('LaporanBarangMasuk/exportpdf'); ?>" class="btn btn-danger"><i class="bx bxs-file-pdf"></i>PDF</a>
+        </div>
     <div class="table-responsive text-nowrap">
         <table class="table table-striped">
             <thead>
