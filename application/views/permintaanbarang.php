@@ -1,6 +1,9 @@
 <div class="card" style="margin-left:25px;margin-right:25px;margin-top:25px;">
     <h5 class="card-header">Permintaan Barang</h5>
     <div class="table-responsive text-nowrap">
+        <div class="p-3">
+            <a href="<?php echo base_url('LaporanPermintaanBarang/exportpdf'); ?>" class="btn btn-danger"><i class="bx bxs-file-pdf"></i>PDF</a>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr>
