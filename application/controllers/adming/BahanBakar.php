@@ -8,7 +8,7 @@ class BahanBakar extends CI_Controller {
 	{
 		$this->load->model('M_tambahbahanbakar');
 		$data['bahanbakar'] = $this->M_tambahbahanbakar->show_data()->result();
-		var_dump($data);exit;
+		// var_dump($data);exit;
 		$this->load->view('templates/adming/header');
         $this->load->view('templates/adming/sidebar');
 		$this->load->view('templates/adming/navbar');
