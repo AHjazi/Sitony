@@ -51,9 +51,33 @@
                             <?php endif; ?>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
-                                <!-- Modal content here -->
-                            </div>
+                            <!-- Modal -->
+<div class="modal fade" id="modalCenter" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Eksekusi</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="nama_petugas" class="form-label">Nama Petugas</label>
+                    <input type="text" class="form-control" id="nama_petugas" name="nama_petugas">
+                </div>
+                <div class="mb-3">
+                    <label for="tanggal" class="form-label">Tanggal</label>
+                    <input type="date" class="form-control" id="tanggal" name="tanggal">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a href="<?php echo base_url('permintaanbarang/eksekusipermintaan') ?>" class="btn btn-primary">Simpan</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
                         </div>
                     </td>
                 </tr>
