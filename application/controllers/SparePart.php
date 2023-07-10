@@ -7,7 +7,8 @@ class SparePart extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('M_tambahsparepart');
-		$data['sparepart'] = $this->M_tambahsparepart->show_data();
+		$data['sparepart'] = $this->M_tambahsparepart->show_data()->result();
+		// var_dump($data['sparepart']);exit;
 		$this->load->view('templates/header');
         $this->load->view('templates/sidebar');
 		$this->load->view('templates/navbar');

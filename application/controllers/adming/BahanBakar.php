@@ -7,8 +7,8 @@ class BahanBakar extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('M_tambahbahanbakar');
-		$data['bahanbakar'] = $this->M_tambahbahanbakar->show_data();
-		// var_dump($data);exit;
+		$data['bahanbakar'] = $this->M_tambahbahanbakar->show_data()->result();
+		var_dump($data);exit;
 		$this->load->view('templates/adming/header');
         $this->load->view('templates/adming/sidebar');
 		$this->load->view('templates/adming/navbar');
@@ -57,53 +57,58 @@ class BahanBakar extends CI_Controller {
 
 	public function _rules()
 	{
-		$this->form_validation->set_rules('id_bahanbakar','kode_bahanbakar','jenis','id_satuan','keperluan','stok','required');
+		// $this->form_validation->set_rules('id_bahanbakar','kode_bahanbakar','jenis','id_satuan','keperluan','stok','required');
 		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
 		// $this->form_validation->set_rules('id_barang','nama_barang','kode_barang','satuan','stok','keperluan','brand','required');
 	}
 	public function tambah_data_aksi()
-	{
-		$this->load->model('M_tambahbahanbakar');
-		$this->_rules();
-		if($this->form_validation->run() == FALSE){
-			$this->tambah();	
-		}else{
-			$id_bahanbakar	  	  = $this->input->post('id_bahanbakar');
-			$kode_bahanbakar 	  = $this->input->post('kode_bahanbakar');
-			$jenis		 		  = $this->input->post('jenis');
-			$id_satuan   	 	  = $this->input->post('id_satuan');
-			$keperluan 	  	 	  = $this->input->post('keperluan');
-			$stok 	  	 		  = $this->input->post('stok');
-			$data = array(
-				'id_bahanbakar'		=> $id_bahanbakar,
-				'kode_bahanbakar'	=> $kode_bahanbakar,
-				'jenis'				=> $jenis,
-				'id_satuan'			=> $id_satuan,
-				'keperluan'			=> $keperluan,
-				'stok'				=> $stok,
-			);
+{
+    $this->load->model('M_tambahbahanbakar');
+    $this->_rules();
 
-			$brg = array(
-				'kode_barang'		=> $kode_bahanbakar,
-				'nama_barang'		=> $jenis,
-				'tgl_barangmasuk'	=> date('Y-m-d'),
-				'jam_barangmasuk'	=> date('H:i:s'),
-				'jumlah'			=> $stok,
-			);
+    if ($this->form_validation->run() == FALSE) {
+        $this->tambah();
+    } else {
+        $id_bahanbakar = $this->input->post('id_bahanbakar');
+        $kode_bahanbakar = $this->input->post('kode_bahanbakar');
+        $jenis = $this->input->post('jenis');
+        $id_satuan = $this->input->post('id_satuan');
+        $keperluan = $this->input->post('keperluan');
+        $stok = $this->input->post('stok');
 
-			$this->M_tambahbahanbakar->insert_data($data, 'bahanbakar');
-			$this->M_tambahbahanbakar->insert_data($brg, 'barangmasuk');
+        $data = array(
+            'id_bahanbakar' => $id_bahanbakar,
+            'kode_bahanbakar' => $kode_bahanbakar,
+            'jenis' => $jenis,
+            'id_satuan' => $id_satuan,
+            'keperluan' => $keperluan,
+            'stok' => $stok,
+        );
 
-			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
+        $brg = array(
+            'kode_barang' => $kode_bahanbakar,
+            'nama_barang' => $jenis,
+            'tgl_barangmasuk' => date('Y-m-d'),
+            'jam_barangmasuk' => date('H:i:s'),
+            'jumlah' => $stok,
+        );
+
+        // Load the M_tambahbahanbakar model
+        $this->load->model('M_tambahbahanbakar');
+        $this->M_tambahbahanbakar->insert_data($data, 'bahanbakar');
+        $this->M_tambahbahanbakar->insert_data($brg, 'barangmasuk');
+
+        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert">
 			<strong>Data berhasil ditambahkan !</strong>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			  <span aria-hidden="true">&times;</span>
 			</button>
 		  </div>');
-		  redirect('./adming/bahanbakar');
-		}
-	
-	}
+        
+        redirect('./adming/bahanbakar');
+    }
+}
+
 	public function update_data_aksi()
 	{
 		$this->load->model('M_tambahbahanbakar');

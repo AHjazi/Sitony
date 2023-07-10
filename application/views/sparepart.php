@@ -1,9 +1,9 @@
 <div class="card" style="margin-left:25px;margin-right:25px;margin-top:25px;">
     <h5 class="card-header">Data Spare Part</h5>
+    <td><a href="<?php echo base_url('sparepart/tambah_sparepart')?>"><button class="btn rounded-pill btn-primary"
+    style="margin-left:20px"><i class='bx bxs-folder-plus'></i> Tambah
+    Data</i></button></a></td>
     <div class="table-responsive text-nowrap">
-        <td><a href="<?php echo base_url('sparepart/tambah_sparepart')?>"><button class="btn rounded-pill btn-primary"
-                    style="margin-left:20px"><i class='bx bxs-folder-plus'></i> Tambah
-                    Data</i></button></a></td>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -22,7 +22,7 @@
                 <?php $no=1; foreach($sparepart as $p) :?>
                 <tr>
                     <td><?php echo $no++ ?></td>
-                    <td><?php echo $p->id_sparepart ?></td>
+                    <td><?php echo $p->id_sparepart?></td>
                     <td><?php echo $p->kode_sparepart ?></td>
                     <td><?php echo $p->nama ?></td>
                     <td><?php echo $p->brand ?></td>

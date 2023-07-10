@@ -5,18 +5,16 @@ class M_tambahbahanbakar extends CI_Model
 
    public function show_data()
 {
-    return $this->db->query("SELECT * FROM bahanbakar s LEFT JOIN satuan sa ON s.id_satuan=sa.id_satuan WHERE s.stok <= 10")->result();
+    return $this->db->query("SELECT * FROM bahanbakar s LEFT JOIN satuan sa ON s.id_satuan=sa.id_satuan WHERE s.stok >= 10")->result();
 }
 
     
     public function get_data($table){
         return $this->db->get($table);
     }
-
     public function insert_data($data,$table){
         $this->db->insert($table,$data);
     }
-
     public function edit_bahanbakar($id)
     {
         return $this->db->get_where('bahanbakar',['id_bahanbakar'=> $id])->row_array();

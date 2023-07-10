@@ -5,7 +5,7 @@ class M_tambahsparepart extends CI_Model
 
     public function show_data()
     {
-        return $this->db->query("SELECT * FROM sparepart s LEFT JOIN satuan sa ON s.id_satuan=sa.id_satuan WHERE s.stok <= 10")->result();
+        return $this->db->query("SELECT * FROM sparepart s LEFT JOIN satuan sa ON s.id_satuan=sa.id_satuan WHERE s.stok >= 10");
     }
 
     public function get_data($table){
