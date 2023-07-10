@@ -1,4 +1,4 @@
-<div class="card mb-4" style="margin-left:25px;margin-right:25px;margin-top:25px;">
+<div class="card mb-4" style="margin-left: 25px; margin-right: 25px; margin-top: 25px;">
     <h5 class="card-header">Data Permintaan Barang Masuk</h5>
     <div class="table-responsive text-nowrap">
         <table class="table table-striped">
@@ -12,6 +12,7 @@
                     <th>Nama Pegawai</th>
                     <th>Divisi</th>
                     <th>Keperluan</th>
+                    <th>Surat Permintaan</th>
                     <th>Jumlah</th>
                     <th>Status Permintaan</th>
                 </tr>
@@ -27,9 +28,16 @@
                     <td><?php echo $p->nama_pegawai ?></td>
                     <td><?php echo $p->divisi ?></td>
                     <td><?php echo $p->keperluan ?></td>
+                    <td>
+                        <?php if ($p->file !== null && $p->file !== '') : ?>
+                        <a href="<?php echo site_url('assets/file/' . $p->file); ?>" target="_blank">Buka File</a>
+                        <?php else : ?>
+                        (Tidak ada file)
+                        <?php endif; ?>
+
+                    </td>
                     <td><?php echo $p->jumlah ?></td>
                     <td><?php echo $p->status ?></td>
-
                 </tr>
             </tbody>
             <?php endforeach; ?>

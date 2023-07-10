@@ -22,7 +22,7 @@
                     <td><?php echo $p->nama_barang ?></td>
                     <td><?php echo $p->brand ?></td>
                     <td><?php echo $p->stok ?></td>
-                    <td><?php echo $p->id_satuan ?></td>
+                    <td><?php echo $p->jenis_satuan ?></td>
                 </tr>
             </tbody>
             <?php endforeach; ?>

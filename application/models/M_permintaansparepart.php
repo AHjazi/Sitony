@@ -12,7 +12,7 @@ class M_permintaansparepart extends CI_Model
         return $this->db->get($table);
     }
 
-    public function insert_data($data,$table){
+    public function insert_data($table,$data){
         $this->db->insert($table,$data);
     }
 
@@ -33,7 +33,7 @@ class M_permintaansparepart extends CI_Model
     {
         $this->db->select('stok');
         $this->db->from('sparepart');
-        $this->db->where('nama_barang', $nama_barang);
+        $this->db->where('nama', $nama_barang);
         $query = $this->db->get();
         $stok = $query->row()->stok;
 
