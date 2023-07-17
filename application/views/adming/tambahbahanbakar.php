@@ -3,7 +3,7 @@
     <div class="card mb-4">
         <h5 class="card-header">Tambah Data Bahan Bakar</h5>
         <div class="card-body">
-            <form action="<?php echo base_url('./adming/bahanbakar/tambah_data_aksi')?>" method="POST">
+            <form action="<?php echo base_url('adming/bahanbakar/tambah_data_aksi')?>" method="POST">
                 <div class="mb-3 row">
                     <label for="html5-text-input" class="col-md-2 col-form-label"></label>
                     <div class="col-md-10">

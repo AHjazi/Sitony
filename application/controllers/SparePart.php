@@ -64,7 +64,7 @@ class SparePart extends CI_Controller {
 		$this->load->model('M_tambahsparepart');
 		$this->_rules();
 		if($this->form_validation->run() == FALSE){
-			$this->tambah();
+			$this->tambah_sparepart();
 		}else{
 			$id_sparepart	  	  = $this->input->post('id_sparepart');
 			$kode_sparepart	  	  = $this->input->post('kode_sparepart');
@@ -83,6 +83,16 @@ class SparePart extends CI_Controller {
 				'keperluan'			=> $keperluan,
 			);
 
+				$cek = $this->db->query("SELECT * FROM sparepart where kode_sparepart='".$this->input->post('kode_sparepart')."'");
+			if ($cek->num_rows()>=1){
+				 $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Kode Barang sudah ada!</strong> Data tidak bisa ditambahkan.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>');
+			redirect('sparepart/tambah_sparepart');
+			}else {
 			$this->M_tambahsparepart->insert_data($data, 'sparepart');
 			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
 			<strong>Data berhasil ditambahkan !</strong>
@@ -91,6 +101,8 @@ class SparePart extends CI_Controller {
 			</button>
 		  </div>');
 		  redirect('sparepart');
+			}
+			
 		}
 	
 	}

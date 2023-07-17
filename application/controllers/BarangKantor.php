@@ -62,9 +62,10 @@ class BarangKantor extends CI_Controller {
 	}
 	public function tambah_data_aksi()
 	{
+		$this->load->model('M_tambahbahanbakar');
 		$this->_rules();
 		if($this->form_validation->run() == FALSE){
-			$this->tambah();
+			$this->tambah_kantor();
 		}else{
 			$id_barang	  	      = $this->input->post('id_barang');
 			$nama_barang  		  = $this->input->post('nama_barang');
@@ -84,14 +85,26 @@ class BarangKantor extends CI_Controller {
 				'brand'			=> $brand,
 			);
 
-			$this->M_tambahkantor->insert_data($data, 'barangkantor');
-			$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
-			<strong>Data berhasil ditambahkan !</strong>
-			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			  <span aria-hidden="true">&times;</span>
-			</button>
-		  </div>');
-		  redirect('barangkantor');
+
+			$cek = $this->db->query("SELECT * FROM barangkantor where kode_barang='".$this->input->post('kode_barang')."'");
+			if ($cek->num_rows()>=1){
+				 $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Kode Barang sudah ada!</strong> Data tidak bisa ditambahkan.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>');
+			redirect('barangkantor/tambah_kantor');
+			}else {
+				$this->M_tambahkantor->insert_data($data, 'barangkantor');
+				$this->session->set_flashdata('pesan','<div class="alert alert-success alert-dismissible fade show" role="alert">
+				<strong>Data berhasil ditambahkan !</strong>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>');
+			  redirect('barangkantor');
+			}
 		}
 	
 	}

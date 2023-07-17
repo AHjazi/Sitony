@@ -8,6 +8,14 @@ class M_tambahbahanbakar extends CI_Model
     return $this->db->query("SELECT * FROM bahanbakar s LEFT JOIN satuan sa ON s.id_satuan=sa.id_satuan WHERE s.stok >= 10")->result();
 }
 
+  public function checkKodeBahanbakarExists($kode_bahanbakar)
+    {
+        $this->db->where('kode_bahanbakar', $kode_bahanbakar);
+        $query = $this->db->get('bahanbakar');
+        
+        return $query->num_rows() > 0;
+    }
+
     
     public function get_data($table){
         return $this->db->get($table);

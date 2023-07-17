@@ -29,6 +29,24 @@ public function insert_data_keluar()
     }
 }
 
+ public function getFilteredBarangKeluar($filter_year, $filter_month)
+{
+    $this->db->select('*');
+    $this->db->from('barangkeluar');
+    
+    if (!empty($filter_year)) {
+        $this->db->where('YEAR(tgl_barangkeluar)', $filter_year);
+    }
+
+    if (!empty($filter_month)) {
+        $this->db->where('MONTH(tgl_barangkeluar)', $filter_month);
+    }
+
+    $query = $this->db->get();
+    return $query->result();
+}
+
+
 
     public function show_data()
     {

@@ -17,8 +17,11 @@ class LaporanBarangKeluar extends CI_Controller {
 
 	public function exportpdf()
     {
+        $filter_year = $this->input->get('filter_year');
+        $filter_month = $this->input->get('filter_month');
+
         // Load model data
-        $data = $this->M_barangkeluar->cetak()->result();
+        $data['barangkeluar'] = $this->M_barangkeluar->getFilteredBarangKeluar($filter_year, $filter_month);
 
         // Initialize FPDF object
         $pdf = new FPDF();
@@ -27,11 +30,22 @@ class LaporanBarangKeluar extends CI_Controller {
         $pdf->AddPage();
 
         // Set font
-        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->SetFont('Arial','', 12);
 
         // Title
-        $pdf->Cell(0, 10, 'Laporan Barang Keluar', 0, 1, 'C');
-        $pdf->Ln(5);
+        // Load the image
+        $imagePath = './assets1/img/ca.png'; // Replace with your image file path
+        $pdf->Image($imagePath, 8, $pdf->GetY(), 40, 30); // Adjust the X and Y coordinates and the width and height as needed
+
+        // Add the text
+        $pdf->Cell(0, 10, 'PERUSAHAAN PERKEBUNAN KELAPA SAWIT', 0, 1, 'C');
+        $pdf->Cell(0, 10, 'PT. CANDI ARTHA', 0, 1, 'C');
+        $pdf->Cell(0, 6, 'Alamat : Desa Tajau Pecah, Kecamatan Batu Ampar,', 0, 1, 'C');
+        $pdf->Cell(0, 6, 'Kabupaten Tanah Laut, Provinsi Kalimantan Selatan,', 0, 1, 'C');
+        $pdf->Cell(0, 8, 'candiartha@gmail.com', 0, 1, 'C');
+        $pdf->SetLineWidth(0.5); // Set line thickness to 0.1 (adjust as needed)
+        $pdf->Line(5, $pdf->GetY(), 200, $pdf->GetY()); // Draw line at current Y position
+        $pdf->Ln(3);
 
         // Table headers
         $pdf->SetFont('Arial', 'B', 10);
@@ -40,21 +54,21 @@ class LaporanBarangKeluar extends CI_Controller {
         $pdf->Cell(40, 7, 'Nama Barang', 1, 0, 'C');
         $pdf->Cell(20, 7, 'Jumlah', 1, 0, 'C');
         $pdf->Cell(30, 7, 'Penerima', 1, 0, 'C');
-        $pdf->Cell(30, 7, 'Petugas', 1, 1, 'C');
+        $pdf->Cell(40, 7, 'Petugas', 1, 1, 'C');
 
         // Table data
         $pdf->SetFont('Arial', '', 10);
         $no = 1;
-        foreach ($data as $row) {
+        foreach ($data['barangkeluar'] as $row) {
             $pdf->Cell(10, 7, $no++, 1, 0, 'C');
             $pdf->Cell(50, 7, $row->tgl_barangkeluar, 1, 0, 'C');
             $pdf->Cell(40, 7, $row->nama_barang, 1, 0, 'C');
             $pdf->Cell(20, 7, $row->jumlah, 1, 0, 'C');
             $pdf->Cell(30, 7, $row->penerima, 1, 0, 'C');
-            $pdf->Cell(30, 7, $row->petugas, 1, 1, 'C');
+            $pdf->Cell(40, 7, $row->petugas, 1, 1, 'C');
         }
 
         // Output the PDF file
-        $pdf->Output('permintaan_barang_masuk.pdf', 'D');
+        $pdf->Output('permintaan_barang_keluar.pdf', 'D');
     }
 }

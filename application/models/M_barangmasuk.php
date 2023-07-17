@@ -8,6 +8,24 @@ class M_barangmasuk extends CI_Model
         return $this->db->get('barangmasuk')->result();
     }
 
+   public function getFilteredBarangMasuk($filter_year, $filter_month)
+{
+    $this->db->select('*');
+    $this->db->from('barangmasuk');
+    
+    if (!empty($filter_year)) {
+        $this->db->where('YEAR(tgl_barangmasuk)', $filter_year);
+    }
+
+    if (!empty($filter_month)) {
+        $this->db->where('MONTH(tgl_barangmasuk)', $filter_month);
+    }
+
+    $query = $this->db->get();
+    return $query->result();
+}
+
+
     public function cetak()
 {
     $this->db->select('*');
